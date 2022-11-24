@@ -8,7 +8,7 @@ const Layout = () => {
         <Image
           className='aspect-auto h-full'
           src={src}
-          alt={'Kitchen with a table, 2 chairs and a window'}
+          alt='Kitchen with a table, 2 chairs and a window'
           width={1240}
           height={873}
           priority
