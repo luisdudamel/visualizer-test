@@ -1,6 +1,6 @@
-const Fingerprint = ({ position }) => {
+const Fingerprint = ({ top, left }) => {
   return (
-    <button className={position}>
+    <button className={`absolute top-[${top}%] left-[${left}%]`}>
       <img
         className='w-[30px] md:w-[50px]'
         src='./img/fingerprint.webp'

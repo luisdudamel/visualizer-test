@@ -1,18 +1,27 @@
 import Head from 'next/head'
-import { useEffect } from 'react'
-import Fingerprint from '../components/Fingerprint/Fingerprint'
+import { useEffect, useState } from 'react'
 import Layout from '../components/Layout/Layout'
 import collections from '../utils/collections'
 import getData from '../utils/getData'
 
 const Home = () => {
+  const [currentData, setCurrentData] = useState()
+  const [hasLoaded, setHasLoaded] = useState(false)
+
   useEffect(() => {
+    const collectionList = []
+
     ;(async () => {
       for (const dbCollection of collections) {
         const collectionData = await getData(dbCollection)
+        collectionList.push(collectionData)
       }
+      setCurrentData(collectionList)
+      setHasLoaded(true)
     })()
   }, [])
+
+  console.log(currentData)
 
   return (
     <>
@@ -25,8 +34,7 @@ const Home = () => {
         <title>Visualizer</title>
       </Head>
       <div className='flex flex-col items-center justify-center w-screen h-screen'>
-        <Layout />
-        <Fingerprint />
+        {hasLoaded && <Layout coordinates={currentData[0]} />}
       </div>
     </>
   )

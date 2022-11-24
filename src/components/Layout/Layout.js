@@ -1,7 +1,10 @@
 import Image from 'next/image'
+import Fingerprint from '../Fingerprint/Fingerprint'
 
-const Layout = () => {
+const Layout = ({ coordinates }) => {
   const src = process.env.NEXT_PUBLIC_BACKGROUND_URL
+
+  console.log(coordinates)
 
   return (
     <div className='flex flex-col items-center justify-center bg-layout-container bg-center w-full h-full 2xl:h-auto '>
@@ -14,6 +17,7 @@ const Layout = () => {
           height={873}
           priority
         />
+        <Fingerprint top={86} left={40} />
       </div>
     </div>
   )
