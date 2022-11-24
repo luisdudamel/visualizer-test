@@ -1,4 +1,3 @@
-import { collection } from 'firebase/firestore'
 import Head from 'next/head'
 import { useEffect } from 'react'
 import Fingerprint from '../components/Fingerprint/Fingerprint'
