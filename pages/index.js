@@ -1,8 +1,16 @@
 import Head from 'next/head'
-import Fingerprint from '../components/Fingerprint/Fingerprint'
+import { useEffect } from 'react'
 import Layout from '../components/Layout/Layout'
+import getData from '../utils/getData'
 
 const Home = () => {
+  useEffect(() => {
+    ;(async () => {
+      const points = await getData('points')
+      console.log(points)
+    })()
+  }, [])
+
   return (
     <>
       <Head>
@@ -15,7 +23,6 @@ const Home = () => {
       </Head>
       <div className='flex flex-col items-center justify-center w-screen h-screen'>
         <Layout />
-        <Fingerprint />
       </div>
     </>
   )
