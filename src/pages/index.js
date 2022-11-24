@@ -1,32 +1,25 @@
 import Head from 'next/head'
 import { useEffect, useState } from 'react'
 import Layout from '../components/Layout/Layout'
+import Spinner from '../components/Spinner/Spinner'
 import collections from '../utils/collections'
 import getData from '../utils/getData'
 
-const Home = () => {
+const Home = ({ data }) => {
   const [currentData, setCurrentData] = useState()
   const [hasLoaded, setHasLoaded] = useState(false)
 
   useEffect(() => {
-    const collectionList = []
-
-    ;(async () => {
-      for (const dbCollection of collections) {
-        const collectionData = await getData(dbCollection)
-        collectionList.push(collectionData)
-      }
-      setCurrentData(collectionList)
-      setHasLoaded(true)
-    })()
+    setCurrentData(data)
+    setHasLoaded(true)
   }, [])
 
-  console.log(currentData)
+  console.log(data)
 
   return (
     <>
       <Head>
-        <link rel='shortcut icon' href='./img/logo-estudio-cactus.svg' />
+        <link rel='shortcut icon' href='/img/logo-estudio-cactus.svg' />
         <meta
           name='viewport'
           content='width=device-width, initial-scale=1, minimum-scale=1'
@@ -34,10 +27,26 @@ const Home = () => {
         <title>Visualizer</title>
       </Head>
       <div className='flex flex-col items-center justify-center w-screen h-screen'>
-        {hasLoaded && <Layout coordinates={currentData[0]} />}
+        {!hasLoaded && <Spinner />}
+        {hasLoaded && <Layout coordinates={data} />}
       </div>
     </>
   )
+}
+
+export const getServerSideProps = async () => {
+  const collectionList = []
+
+  for (const dbCollection of collections) {
+    const collectionData = await getData(dbCollection)
+    collectionList.push(collectionData)
+  }
+
+  return {
+    props: {
+      data: { collectionList }
+    }
+  }
 }
 
 export default Home

@@ -1,9 +1,10 @@
-const Fingerprint = ({ top, left }) => {
+const Fingerprint = ({ buttonClass }) => {
+  console.log(buttonClass)
   return (
-    <button className={`absolute top-[${top}%] left-[${left}%]`}>
+    <button className={buttonClass}>
       <img
         className='w-[30px] md:w-[50px]'
-        src='./img/fingerprint.webp'
+        src='./img/fingerprint.svg'
         alt='Fingerprint icon'
       />
     </button>
