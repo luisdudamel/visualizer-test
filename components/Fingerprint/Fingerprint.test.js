@@ -11,5 +11,14 @@ describe('Given a Fingerprint function', () => {
 
       expect(fingerprintButon).toBeInTheDocument()
     })
+
+    test("Then it should render an image with the alternative text 'Fingerprint icon'", () => {
+      const expectedAlternativeText = 'Fingerprint icon'
+
+      render(<Fingerprint />)
+      const fingerprintImage = screen.getByAltText(expectedAlternativeText)
+
+      expect(fingerprintImage).toBeInTheDocument()
+    })
   })
 })
