@@ -17,7 +17,7 @@ const Home = () => {
   return (
     <>
       <Head>
-        <link rel='shortcut icon' href='/img/logo-estudio-cactus.svg' />
+        <link rel='shortcut icon' href='./img/logo-estudio-cactus.svg' />
         <meta
           name='viewport'
           content='width=device-width, initial-scale=1, minimum-scale=1'

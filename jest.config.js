@@ -6,7 +6,8 @@ module.exports = {
     '<rootDir>/src/pages/**/*.{js,jsx,ts,tsx}',
     '<rootDir>/src/utils/**/*.{js,jsx,ts,tsx}',
     '!**/*.test.js',
-    '!<rootDir>/src/pages/*'
+    '!<rootDir>/src/pages/*',
+    '!<rootDir>/src/utils/collections.js'
   ],
   moduleNameMapper: {
     // Handle CSS imports (with CSS modules)
@@ -34,7 +35,7 @@ module.exports = {
     '^.+\\.(js|jsx|ts|tsx)$': ['babel-jest', { presets: ['next/babel'] }]
   },
   transformIgnorePatterns: [
-    '/node_modules/',
+    '!node_modules/',
     '^.+\\.module\\.(css|sass|scss)$'
   ],
   testEnvironment: 'jest-environment-jsdom'
