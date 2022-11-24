@@ -1,4 +1,5 @@
 import Head from 'next/head'
+import Fingerprint from '../components/Fingerprint/Fingerprint'
 import Layout from '../components/Layout/Layout'
 
 const Home = () => {
@@ -14,6 +15,7 @@ const Home = () => {
       </Head>
       <div className='flex flex-col items-center justify-center w-screen h-screen'>
         <Layout />
+        <Fingerprint />
       </div>
     </>
   )
