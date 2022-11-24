@@ -3,9 +3,9 @@ const Layout = () => {
   const src = process.env.NEXT_PUBLIC_BACKGROUND_URL
 
   return (
-    <div className='flex flex-col lg:h-full lg:w-5/6 md:h-full md:w-5/6 w-[1240px] h-[873px] items-center justify-center relative'>
+    <div className='bg-layout-container bg-center flex flex-col 2xl:h-auto md:w-full w-[1240px] h-full items-center justify-center relative'>
       <Image
-        className='aspect-auto'
+        className='aspect-auto h-full'
         src={src}
         alt={'Kitchen with a table, 2 chairs and a window'}
         width={1240}
