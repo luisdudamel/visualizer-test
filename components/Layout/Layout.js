@@ -1,4 +1,5 @@
 import Image from 'next/image'
+
 const Layout = () => {
   const src = process.env.NEXT_PUBLIC_BACKGROUND_URL
 
