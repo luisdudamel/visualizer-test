@@ -2,9 +2,12 @@
 
 module.exports = {
   collectCoverageFrom: [
-    '**/*.{js,jsx,ts,tsx}',
-    '!**/*.d.ts',
-    '!**/node_modules/**'
+    '<rootDir>/src/components/**/*.{js,jsx,ts,tsx}',
+    '<rootDir>/src/pages/**/*.{js,jsx,ts,tsx}',
+    '<rootDir>/src/utils/**/*.{js,jsx,ts,tsx}',
+    '!**/*.test.js',
+    '!<rootDir>/src/pages/*',
+    '!<rootDir>/src/utils/collections.js'
   ],
   moduleNameMapper: {
     // Handle CSS imports (with CSS modules)
@@ -16,7 +19,8 @@ module.exports = {
 
     // Handle image imports
     // https://jestjs.io/docs/webpack#handling-static-assets
-    '^.+\\.(png|jpg|jpeg|gif|webp|avif|ico|bmp|svg)$': '<rootDir>/__mocks__/fileMock.js',
+    '^.+\\.(png|jpg|jpeg|gif|webp|avif|ico|bmp|svg)$':
+      '<rootDir>/__mocks__/fileMock.js',
 
     // Handle module aliases
     '^@/components/(.*)$': '<rootDir>/components/$1',
@@ -31,7 +35,7 @@ module.exports = {
     '^.+\\.(js|jsx|ts|tsx)$': ['babel-jest', { presets: ['next/babel'] }]
   },
   transformIgnorePatterns: [
-    '/node_modules/',
+    '!node_modules/',
     '^.+\\.module\\.(css|sass|scss)$'
   ],
   testEnvironment: 'jest-environment-jsdom'
