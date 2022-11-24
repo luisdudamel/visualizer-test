@@ -1,5 +1,4 @@
 const Fingerprint = ({ buttonClass }) => {
-  console.log(buttonClass)
   return (
     <button className={buttonClass}>
       <img

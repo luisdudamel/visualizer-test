@@ -8,7 +8,6 @@ import getData from '../utils/getData'
 const Home = ({ data }) => {
   const [currentData, setCurrentData] = useState()
   const [hasLoaded, setHasLoaded] = useState(false)
-  console.log(data)
 
   useEffect(() => {
     setCurrentData(data)
@@ -27,7 +26,7 @@ const Home = ({ data }) => {
       </Head>
       <div className='flex flex-col items-center justify-center w-screen h-screen'>
         {!hasLoaded && <Spinner />}
-        {hasLoaded && <Layout coordinates={data} />}
+        {hasLoaded && <Layout coordinates={currentData} />}
       </div>
     </>
   )
