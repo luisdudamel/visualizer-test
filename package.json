@@ -12,7 +12,8 @@
     "build": "next build",
     "start": "next start",
     "test": "jest",
-    "test:watch": "jest --watchAll"
+    "test:watch": "jest --watchAll",
+    "test:coverage": "npm run test -- --coverage"
   },
   "dependencies": {
     "firebase": "^9.6.1",

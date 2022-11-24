@@ -2,9 +2,11 @@
 
 module.exports = {
   collectCoverageFrom: [
-    '**/*.{js,jsx,ts,tsx}',
-    '!**/*.d.ts',
-    '!**/node_modules/**'
+    '<rootDir>/components/**/*.{js,jsx,ts,tsx}',
+    '<rootDir>/pages/**/*.{js,jsx,ts,tsx}',
+    '<rootDir>/utils/**/*.{js,jsx,ts,tsx}',
+    '!**/*.test.js',
+    '!<rootDir>/pages/*'
   ],
   moduleNameMapper: {
     // Handle CSS imports (with CSS modules)
@@ -16,7 +18,8 @@ module.exports = {
 
     // Handle image imports
     // https://jestjs.io/docs/webpack#handling-static-assets
-    '^.+\\.(png|jpg|jpeg|gif|webp|avif|ico|bmp|svg)$': '<rootDir>/__mocks__/fileMock.js',
+    '^.+\\.(png|jpg|jpeg|gif|webp|avif|ico|bmp|svg)$':
+      '<rootDir>/__mocks__/fileMock.js',
 
     // Handle module aliases
     '^@/components/(.*)$': '<rootDir>/components/$1',
