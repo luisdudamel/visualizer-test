@@ -8,13 +8,12 @@ import getData from '../utils/getData'
 const Home = ({ data }) => {
   const [currentData, setCurrentData] = useState()
   const [hasLoaded, setHasLoaded] = useState(false)
+  console.log(data)
 
   useEffect(() => {
     setCurrentData(data)
     setHasLoaded(true)
   }, [])
-
-  console.log(data)
 
   return (
     <>

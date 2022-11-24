@@ -16,10 +16,10 @@ const Layout = ({ coordinates }) => {
           priority
         />
 
-        <Fingerprint buttonClass={'absolute left-[40%] top-[86%]'} />
-        <Fingerprint buttonClass={'absolute left-[71%] top-[38%]'} />
-        <Fingerprint buttonClass={'absolute left-[52%] top-[55%]'} />
-        <Fingerprint buttonClass={'absolute left-[61%] top-[47%]'} />
+        <Fingerprint buttonClass='absolute left-[40%] top-[86%]' />
+        <Fingerprint buttonClass='absolute left-[71%] top-[38%]' />
+        <Fingerprint buttonClass='absolute left-[52%] top-[55%]' />
+        <Fingerprint buttonClass='absolute left-[61%] top-[47%]' />
       </div>
     </div>
   )
