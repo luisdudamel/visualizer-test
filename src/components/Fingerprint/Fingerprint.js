@@ -1,9 +1,9 @@
-const Fingerprint = ({ position }) => {
+const Fingerprint = ({ buttonClass }) => {
   return (
-    <button className={position}>
+    <button className={buttonClass}>
       <img
         className='w-[30px] md:w-[50px]'
-        src='./img/fingerprint.webp'
+        src='./img/fingerprint.svg'
         alt='Fingerprint icon'
       />
     </button>

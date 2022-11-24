@@ -1,4 +1,3 @@
-import { getDocs } from 'firebase/firestore'
 import getData from './getData'
 
 jest.mock('firebase/firestore', () => ({
