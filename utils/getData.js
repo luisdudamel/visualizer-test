@@ -5,7 +5,11 @@ const getData = async collectionToGet => {
   const currentCollection = collection(database, collectionToGet)
   const collectionDocuments = await getDocs(currentCollection)
 
-  return collectionDocuments
+  const documentsData = collectionDocuments.docs.map(document => {
+    return document.data()
+  })
+
+  return documentsData
 }
 
 export default getData
