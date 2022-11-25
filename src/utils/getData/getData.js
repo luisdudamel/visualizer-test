@@ -1,11 +1,4 @@
-import {
-  collection,
-  documentId,
-  getDoc,
-  getDocs,
-  query,
-  where
-} from 'firebase/firestore'
+import { collection, documentId, query, where } from 'firebase/firestore'
 import database from '../../firebase/config'
 import createDataStructure from '../createDataStructure/createDataStructure'
 import getCollectionData from '../getCollectionData/getCollectionData'

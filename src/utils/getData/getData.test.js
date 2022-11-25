@@ -1,4 +1,3 @@
-import { waitFor } from '@testing-library/react'
 import { mockMaterialQuery } from '../../../mocks/mockCollections'
 import getData from './getData'
 

@@ -1,32 +1,16 @@
-import {
-  collection,
-  documentId,
-  getDocs,
-  query,
-  where
-} from 'firebase/firestore'
 import Head from 'next/head'
 import { useEffect, useState } from 'react'
 import Layout from '../components/Layout/Layout'
 import Spinner from '../components/Spinner/Spinner'
-import database from '../firebase/config'
-import collections from '../utils/collections'
-import getCollectionData from '../utils/getCollectionData/getCollectionData'
+
 import getData from '../utils/getData/getData'
 
 const Home = ({ data }) => {
   const [currentData, setCurrentData] = useState()
   const [hasLoaded, setHasLoaded] = useState(false)
+  console.log(currentData)
 
   useEffect(() => {
-    ;(async () => {
-      const pointsQuery = query(
-        collection(database, 'points'),
-        where(documentId(), '==', 'EnRd7hAaNydVdVJ06qgF')
-      )
-
-      const pointsresult = await getDocs(pointsQuery)
-    })()
     setCurrentData(data)
     setHasLoaded(true)
   }, [])
@@ -60,7 +44,7 @@ export const getServerSideProps = async () => {
 
   return {
     props: {
-      data: data
+      data
     }
   }
 }
