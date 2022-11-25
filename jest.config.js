@@ -37,5 +37,6 @@ module.exports = {
     '!node_modules/',
     '^.+\\.module\\.(css|sass|scss)$'
   ],
-  testEnvironment: 'jest-environment-jsdom'
+  testEnvironment: 'jest-environment-jsdom',
+  globalSetup: '<rootDir>/__test__/setupEnv.js'
 }

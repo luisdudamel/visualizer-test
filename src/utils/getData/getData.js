@@ -13,7 +13,6 @@ import getCollectionData from '../getCollectionData/getCollectionData'
 const getData = async collectionToGet => {
   const materialsCollection = query(collection(database, collectionToGet))
   const materialsQuery = await getCollectionData(materialsCollection)
-
   const pointsToGet = [
     ...new Set(
       materialsQuery.map(material => {

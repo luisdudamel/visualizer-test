@@ -17,7 +17,7 @@ import getData from '../utils/getData/getData'
 const Home = ({ data }) => {
   const [currentData, setCurrentData] = useState()
   const [hasLoaded, setHasLoaded] = useState(false)
-  console.log(currentData)
+
   useEffect(() => {
     ;(async () => {
       const pointsQuery = query(
