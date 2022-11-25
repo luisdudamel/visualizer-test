@@ -11,6 +11,7 @@ const config = {
 }
 
 const firebaseApp = initializeApp(config)
+
 const database = getFirestore(firebaseApp)
 
 export default database

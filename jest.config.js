@@ -5,7 +5,8 @@ module.exports = {
     'src/**/*js',
     '!**/*.test.js',
     '!src/pages/*',
-    '!src/utils/collections.js'
+    '!src/utils/collections.js',
+    '!src/firebase/config.js'
   ],
   moduleNameMapper: {
     // Handle CSS imports (with CSS modules)
@@ -36,5 +37,6 @@ module.exports = {
     '!node_modules/',
     '^.+\\.module\\.(css|sass|scss)$'
   ],
-  testEnvironment: 'jest-environment-jsdom'
+  testEnvironment: 'jest-environment-jsdom',
+  globalSetup: '<rootDir>/__test__/setupEnv.js'
 }

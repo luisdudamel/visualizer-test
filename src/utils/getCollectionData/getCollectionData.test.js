@@ -1,4 +1,4 @@
-import getData from './getData'
+import getCollectionData from './getCollectionData'
 
 jest.mock('firebase/firestore', () => ({
   ...jest.requireActual('firebase/firestore'),
@@ -21,7 +21,7 @@ describe('Given a getData function', () => {
       const expectedCollectionData = ['Morse White Nature', 'Morse Grey Nature']
       const database = 'materials'
 
-      const collections = await getData(database)
+      const collections = await getCollectionData(database)
 
       expect(collections).toEqual(expectedCollectionData)
     })
