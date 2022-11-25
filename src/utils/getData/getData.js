@@ -21,7 +21,6 @@ const getData = async collectionToGet => {
           collection(database, 'points'),
           where(documentId(), '==', point)
         )
-
         const pointData = await getCollectionData(pointRawData)
 
         return {
