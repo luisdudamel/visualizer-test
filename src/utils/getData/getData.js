@@ -7,6 +7,7 @@ import {
   where
 } from 'firebase/firestore'
 import database from '../../firebase/config'
+import createDataStructure from '../createDataStructure/createDataStructure'
 import getCollectionData from '../getCollectionData/getCollectionData'
 
 const getData = async collectionToGet => {
@@ -28,14 +29,18 @@ const getData = async collectionToGet => {
         where(documentId(), '==', point)
       )
 
+      const pointData = await getCollectionData(pointRawData)
+
       return {
-        ...(await getCollectionData(pointRawData)),
+        ...pointData[0],
         id: point
       }
     })
   )
 
-  return pointsQuery
+  const currentData = createDataStructure(materialsQuery, pointsQuery)
+
+  return currentData
 }
 
 export default getData

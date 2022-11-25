@@ -1,15 +1,11 @@
 const createDataStructure = (materials, points) => {
   const pointsList = points.map(point => {
-    point.name
-  })
-
-  console.log(pointsList)
-
-  const data = [
-    {
-      place: points.name
+    return {
+      place: point.name,
+      point: point,
+      materials: materials.filter(material => material.points[0] === point.id)
     }
-  ]
+  })
 
   return pointsList
 }

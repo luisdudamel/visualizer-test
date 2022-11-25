@@ -26,8 +26,6 @@ const Home = ({ data }) => {
       )
 
       const pointsresult = await getDocs(pointsQuery)
-
-      console.log(pointsresult)
     })()
     setCurrentData(data)
     setHasLoaded(true)
