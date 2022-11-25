@@ -2,7 +2,7 @@ import Image from 'next/image'
 import Fingerprint from '../Fingerprint/Fingerprint'
 import MaterialLayer from '../MaterialLayer/MaterialLayer'
 
-const Layout = ({ coordinates }) => {
+const Layout = ({ data }) => {
   const src = process.env.NEXT_PUBLIC_BACKGROUND_URL
 
   return (
@@ -21,7 +21,7 @@ const Layout = ({ coordinates }) => {
           <Fingerprint buttonClass='z-10 absolute 2xl:fixed left-[71%] top-[38%]' />
           <Fingerprint buttonClass='z-10 absolute 2xl:fixed left-[52%] top-[55%]' />
           <Fingerprint buttonClass='z-10 absolute 2xl:fixed left-[61%] top-[47%]' />
-          <MaterialLayer />
+          <MaterialLayer layerData={data} />
         </div>
       </div>
     </div>
