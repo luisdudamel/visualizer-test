@@ -1,4 +1,4 @@
-const Spinner = () => {
+const Spinner = ({ messageText }) => {
   return (
     <div className='z-10 fixed top-[50%] left-[50%] translate-y-0 -translate-x-1/2'>
       <div role='status'>
@@ -17,6 +17,7 @@ const Spinner = () => {
             fill='currentFill'
           />
         </svg>
+        {messageText}
         <span className='sr-only'>Loading...</span>
       </div>
     </div>
