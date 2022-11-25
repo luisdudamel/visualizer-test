@@ -48,7 +48,13 @@ const Home = ({ data }) => {
       </Head>
       <div className='flex flex-col items-center justify-center w-screen h-screen'>
         {!hasLoaded && <Spinner />}
-        {hasLoaded && <Layout coordinates={currentData} />}
+        {hasLoaded && (
+          <Layout
+            data={{
+              src: 'https://firebasestorage.googleapis.com/image.png'
+            }}
+          />
+        )}
       </div>
     </>
   )
