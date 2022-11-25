@@ -26,10 +26,8 @@ const Home = ({ data }) => {
       )
 
       const pointsresult = await getDocs(pointsQuery)
-      const materialsresult = await getData('materials')
 
       console.log(pointsresult)
-      console.log(materialsresult)
     })()
     setCurrentData(data)
     setHasLoaded(true)
@@ -60,18 +58,11 @@ const Home = ({ data }) => {
 }
 
 export const getServerSideProps = async () => {
-  const collectionList = []
-
-  for (const dbCollection of collections) {
-    const currentCollection = collection(database, dbCollection)
-    const collectionData = await getCollectionData(currentCollection)
-
-    collectionList.push(collectionData)
-  }
+  const data = await getData('materials')
 
   return {
     props: {
-      data: { collectionList }
+      data: data
     }
   }
 }
