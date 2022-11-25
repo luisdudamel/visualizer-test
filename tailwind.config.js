@@ -10,6 +10,5 @@ module.exports = {
         'layout-container': `url(${process.env.NEXT_PUBLIC_BACKGROUND_URL})`
       }
     }
-  },
-  plugins: [require('flowbite/plugin')]
+  }
 }
