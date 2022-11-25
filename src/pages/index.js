@@ -11,7 +11,8 @@ import Layout from '../components/Layout/Layout'
 import Spinner from '../components/Spinner/Spinner'
 import database from '../firebase/config'
 import collections from '../utils/collections'
-import getData from '../utils/getData'
+import getCollectionData from '../utils/getCollectionData/getCollectionData'
+import getData from '../utils/getData/getData'
 
 const Home = ({ data }) => {
   const [currentData, setCurrentData] = useState()
@@ -19,15 +20,13 @@ const Home = ({ data }) => {
   console.log(currentData)
   useEffect(() => {
     ;(async () => {
-      const materialsQuery = query(collection(database, 'materials'))
-
       const pointsQuery = query(
         collection(database, 'points'),
         where(documentId(), '==', 'EnRd7hAaNydVdVJ06qgF')
       )
 
       const pointsresult = await getDocs(pointsQuery)
-      const materialsresult = await getData(materialsQuery)
+      const materialsresult = await getData('materials')
 
       console.log(pointsresult)
       console.log(materialsresult)
@@ -66,7 +65,7 @@ export const getServerSideProps = async () => {
   for (const dbCollection of collections) {
     const currentCollection = collection(database, dbCollection)
 
-    const collectionData = await getData(currentCollection)
+    const collectionData = await getCollectionData(currentCollection)
     collectionList.push(collectionData)
   }
 

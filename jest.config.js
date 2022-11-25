@@ -5,7 +5,8 @@ module.exports = {
     'src/**/*js',
     '!**/*.test.js',
     '!src/pages/*',
-    '!src/utils/collections.js'
+    '!src/utils/collections.js',
+    '!src/firebase/config.js'
   ],
   moduleNameMapper: {
     // Handle CSS imports (with CSS modules)
