@@ -1,4 +1,10 @@
-import { collection, getDocs } from 'firebase/firestore'
+import {
+  collection,
+  documentId,
+  getDocs,
+  query,
+  where
+} from 'firebase/firestore'
 import Head from 'next/head'
 import { useEffect, useState } from 'react'
 import Layout from '../components/Layout/Layout'
@@ -13,13 +19,18 @@ const Home = ({ data }) => {
   console.log(currentData)
   useEffect(() => {
     ;(async () => {
-      const currentCollection = collection(database, 'materials')
-      const collectionDocuments = await getDocs(currentCollection)
-      const currentCollection2 = collection(database, 'points')
-      const collectionDocuments2 = await getDocs(currentCollection2)
+      const materialsQuery = query(collection(database, 'materials'))
 
-      console.log(collectionDocuments)
-      console.log(collectionDocuments2)
+      const pointsQuery = query(
+        collection(database, 'points'),
+        where(documentId(), '==', 'EnRd7hAaNydVdVJ06qgF')
+      )
+
+      const pointsresult = await getDocs(pointsQuery)
+      const materialsresult = await getData(materialsQuery)
+
+      console.log(pointsresult)
+      console.log(materialsresult)
     })()
     setCurrentData(data)
     setHasLoaded(true)
@@ -47,7 +58,9 @@ export const getServerSideProps = async () => {
   const collectionList = []
 
   for (const dbCollection of collections) {
-    const collectionData = await getData(dbCollection)
+    const currentCollection = collection(database, dbCollection)
+
+    const collectionData = await getData(currentCollection)
     collectionList.push(collectionData)
   }
 

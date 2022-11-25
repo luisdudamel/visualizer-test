@@ -1,10 +1,7 @@
-import { collection, getDocs } from 'firebase/firestore'
-import database from '../firebase/config'
+import { getDocs } from 'firebase/firestore'
 
 const getData = async collectionToGet => {
-  const currentCollection = collection(database, collectionToGet)
-  const collectionDocuments = await getDocs(currentCollection)
-
+  const collectionDocuments = await getDocs(collectionToGet)
   const documentsData = collectionDocuments.docs.map(document => {
     return document.data()
   })
