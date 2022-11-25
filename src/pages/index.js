@@ -64,8 +64,8 @@ export const getServerSideProps = async () => {
 
   for (const dbCollection of collections) {
     const currentCollection = collection(database, dbCollection)
-
     const collectionData = await getCollectionData(currentCollection)
+
     collectionList.push(collectionData)
   }
 
