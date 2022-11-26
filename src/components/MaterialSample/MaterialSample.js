@@ -5,7 +5,7 @@ const MaterialSample = ({ material }) => {
     <div className='flex items-center'>
       <button
         type='button'
-        className='bg-white rounded border-[3px] border-white overflow-hidden focus:overflow-visible h-[70px] w-[70px]'
+        className='bg-white text-s text-left rounded border-[3px] border-white overflow-hidden focus-visible:overflow-visible h-[70px] w-[70px]'
       >
         <Image
           className='rounded'
@@ -14,7 +14,7 @@ const MaterialSample = ({ material }) => {
           alt={`${material}material sample`}
           src={material}
         />
-        Seleccionar el material {material}
+        Seleccionar el material
       </button>
     </div>
   )

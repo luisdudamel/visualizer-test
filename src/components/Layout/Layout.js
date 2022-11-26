@@ -25,10 +25,10 @@ const Layout = ({ data, backgroundImageSrc }) => {
               height={873}
               priority
             />
-            <Fingerprint buttonClass='z-1 absolute left-[40%] top-[86%] overflow-hidden focus:overflow-visible w-[30px] h-[30px]' />
-            <Fingerprint buttonClass='z-1 absolute left-[71%] top-[38%] overflow-hidden focus:overflow-visible w-[30px] h-[30px]' />
-            <Fingerprint buttonClass='z-1 absolute left-[52%] top-[55%] overflow-hidden focus:overflow-visible w-[30px] h-[30px]' />
-            <Fingerprint buttonClass='z-1 absolute left-[61%] top-[47%] overflow-hidden focus:overflow-visible w-[30px] h-[30px]' />
+            <Fingerprint buttonClass='z-1 absolute left-[40%] text-s top-[86%] overflow-hidden focus-visible:overflow-visible w-[30px] h-[30px]' />
+            <Fingerprint buttonClass='z-1 absolute left-[52%] text-s top-[55%] overflow-hidden focus-visible:overflow-visible w-[30px] h-[30px]' />
+            <Fingerprint buttonClass='z-1 absolute left-[61%] text-s top-[47%] overflow-hidden focus-visible:overflow-visible w-[30px] h-[30px]' />
+            <Fingerprint buttonClass='z-1 absolute left-[71%] text-s top-[38%] overflow-hidden focus-visible:overflow-visible w-[30px] h-[30px]' />
             {/* <MaterialLayer layerData={floorLayers} /> */}
             <MaterialSelector />
           </div>

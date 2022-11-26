@@ -10,7 +10,7 @@ const Fingerprint = ({ buttonClass }) => {
         width={30}
         height={30}
       />
-      BOTON PARA SELECCIONAR
+      Seleccionar zona
     </button>
   )
 }
