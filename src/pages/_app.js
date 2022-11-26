@@ -1,7 +1,18 @@
 import '../styles/globals.css'
+import { Roboto } from '@next/font/google'
+
+const roboto = Roboto({
+  variable: '--font-roboto',
+  subsets: ['latin'],
+  weight: '400'
+})
 
 const MyApp = ({ Component, pageProps }) => {
-  return <Component {...pageProps} />
+  return (
+    <main className={`${roboto.variable} font-sans`}>
+      <Component {...pageProps} />
+    </main>
+  )
 }
 
 export default MyApp
