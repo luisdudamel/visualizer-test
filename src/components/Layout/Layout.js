@@ -1,12 +1,17 @@
 import Image from 'next/image'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import Fingerprint from '../Fingerprint/Fingerprint'
 import MaterialLayer from '../MaterialLayer/MaterialLayer'
 import MaterialSample from '../MaterialSample/MaterialSample'
 
 const Layout = ({ data, backgroundImageSrc }) => {
   const [currentData, setCurrentData] = useState()
+  const [floorLayer, setFloorLayer] = useState('')
 
+  useEffect(() => {
+    setCurrentData(currentData)
+  }, [])
+  console.log(data)
   return (
     <div className='bg-layout-container bg-center w-full h-screen 2xl:h-auto '>
       <div className='backdrop-blur-lg flex flex-col items-center justify-center w-full h-full 2xl:h-auto '>
@@ -23,8 +28,8 @@ const Layout = ({ data, backgroundImageSrc }) => {
           <Fingerprint buttonClass='z-10 absolute 2xl:fixed left-[71%] top-[38%]' />
           <Fingerprint buttonClass='z-10 absolute 2xl:fixed left-[52%] top-[55%]' />
           <Fingerprint buttonClass='z-10 absolute 2xl:fixed left-[61%] top-[47%]' />
-          {/* <MaterialLayer layerData={data} /> */}
-          <MaterialSample material={data} />
+          <MaterialLayer layerData={floorLayer} />
+          {/* <MaterialSample material={floorLayer} /> */}
         </div>
       </div>
     </div>
