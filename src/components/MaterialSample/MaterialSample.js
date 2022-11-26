@@ -1,6 +1,6 @@
 import Image from 'next/image'
 
-const MaterialSample = material => {
+const MaterialSample = ({ material }) => {
   return (
     <button>
       <Image
