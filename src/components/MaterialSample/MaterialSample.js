@@ -5,7 +5,7 @@ const MaterialSample = ({ material }) => {
     <div className='flex items-center'>
       <button
         type='button'
-        className='bg-white rounded border-4 border-white overflow-hidden focus:overflow-visible h-[70px] w-[70px]'
+        className='bg-white rounded border-[3px] border-white overflow-hidden focus:overflow-visible h-[70px] w-[70px]'
       >
         <Image
           className='rounded'
