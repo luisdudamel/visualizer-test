@@ -5,13 +5,26 @@ import MaterialLayer from '../MaterialLayer/MaterialLayer'
 import MaterialSelector from '../MaterialSelector/MaterialSelector'
 
 const Layout = ({ data, backgroundImageSrc }) => {
-  const [currentData, setCurrentData] = useState()
-  const [floorLayers, setFloorLayers] = useState('')
+  const [currentData, setCurrentData] = useState([])
+  // const [floorLayers, setFloorLayers] = useState('')
+  const [isSelectorOpen, setIsSelectorOpen] = useState(false)
+  const [floorLayer, setFloorLayer] = useState()
+  const [hasLoaded, setHasloaded] = useState(false)
 
+  const openSelector = place => {
+    const materialsPlaceToShow = currentData.find(
+      material => material.place === place
+    )
+
+    setFloorLayer(materialsPlaceToShow)
+    setIsSelectorOpen(!isSelectorOpen)
+  }
+  console.log(currentData)
   useEffect(() => {
-    setCurrentData(currentData)
+    setCurrentData(data)
+    setHasloaded(!hasLoaded)
   }, [])
-  console.log(data)
+
   return (
     <div className='font-sans bg-layout-container bg-center w-screen h-screen  '>
       <div className='backdrop-blur-2xl flex flex-row items-center justify-center w-full h-full xl:px-[180px]  '>
@@ -25,12 +38,32 @@ const Layout = ({ data, backgroundImageSrc }) => {
               height={873}
               priority
             />
-            <Fingerprint buttonClass='z-1 absolute left-[40%] text-s top-[86%] overflow-hidden focus-visible:overflow-visible w-[30px] h-[30px]' />
-            <Fingerprint buttonClass='z-1 absolute left-[52%] text-s top-[55%] overflow-hidden focus-visible:overflow-visible w-[30px] h-[30px]' />
-            <Fingerprint buttonClass='z-1 absolute left-[61%] text-s top-[47%] overflow-hidden focus-visible:overflow-visible w-[30px] h-[30px]' />
-            <Fingerprint buttonClass='z-1 absolute left-[71%] text-s top-[38%] overflow-hidden focus-visible:overflow-visible w-[30px] h-[30px]' />
+            {hasLoaded && (
+              <>
+                <Fingerprint
+                  action={openSelector}
+                  place={currentData[0].place}
+                  buttonClass='z-1 absolute left-[40%] text-s top-[86%] overflow-hidden focus-visible:overflow-visible w-[30px] h-[30px]'
+                />
+                <Fingerprint
+                  action={openSelector}
+                  place={currentData[1].place}
+                  buttonClass='z-1 absolute left-[52%] text-s top-[55%] overflow-hidden focus-visible:overflow-visible w-[30px] h-[30px]'
+                />
+                <Fingerprint
+                  action={openSelector}
+                  place={currentData[2].place}
+                  buttonClass='z-1 absolute left-[61%] text-s top-[47%] overflow-hidden focus-visible:overflow-visible w-[30px] h-[30px]'
+                />
+                <Fingerprint
+                  action={openSelector}
+                  place={currentData[3].place}
+                  buttonClass='z-1 absolute left-[71%] text-s top-[38%] overflow-hidden focus-visible:overflow-visible w-[30px] h-[30px]'
+                />
+              </>
+            )}
             {/* <MaterialLayer layerData={floorLayers} /> */}
-            <MaterialSelector />
+            {isSelectorOpen && <MaterialSelector />}
           </div>
         </div>
       </div>
