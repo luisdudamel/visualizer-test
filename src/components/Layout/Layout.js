@@ -10,8 +10,9 @@ const Layout = ({ data, backgroundImageSrc }) => {
   const [isSelectorOpen, setIsSelectorOpen] = useState(false)
   const [materialPreview, setMaterialPreview] = useState()
   const [hasLoaded, setHasloaded] = useState(false)
-
   const [activeLayers, setActiveLayers] = useState([])
+
+  console.log(activeLayers)
 
   const toggleSelector = place => {
     const materialsPlaceToShow = currentData.find(
@@ -31,8 +32,6 @@ const Layout = ({ data, backgroundImageSrc }) => {
     setActiveLayers(newLayerList)
   }
 
-  console.log(activeLayers)
-
   return (
     <div className='font-sans bg-layout-container bg-center w-screen h-screen  '>
       <div className='backdrop-blur-2xl flex flex-row items-center justify-center w-full h-full xl:px-[180px]  '>
@@ -46,31 +45,34 @@ const Layout = ({ data, backgroundImageSrc }) => {
               height={873}
               priority
             />
-            {hasLoaded && (
+            {hasLoaded && !isSelectorOpen && (
               <>
                 <Fingerprint
                   action={toggleSelector}
                   place={currentData[0].place}
-                  buttonClass='z-1 absolute left-[40%] text-s top-[86%] overflow-hidden focus-visible:overflow-visible w-[30px] h-[30px]'
+                  buttonClass='z-[1] absolute left-[40%] text-s top-[86%] overflow-hidden focus-visible:overflow-visible w-[30px] h-[30px]'
                 />
                 <Fingerprint
                   action={toggleSelector}
                   place={currentData[1].place}
-                  buttonClass='z-1 absolute left-[61%] text-s top-[47%] overflow-hidden focus-visible:overflow-visible w-[30px] h-[30px]'
+                  buttonClass='z-[1] absolute left-[61%] text-s top-[47%] overflow-hidden focus-visible:overflow-visible w-[30px] h-[30px]'
                 />
                 <Fingerprint
                   action={toggleSelector}
                   place={currentData[2].place}
-                  buttonClass='z-1 absolute left-[71%] text-s top-[38%] overflow-hidden focus-visible:overflow-visible w-[30px] h-[30px]'
+                  buttonClass='z-[1] absolute left-[71%] text-s top-[38%] overflow-hidden focus-visible:overflow-visible w-[30px] h-[30px]'
                 />
                 <Fingerprint
                   action={toggleSelector}
                   place={currentData[3].place}
-                  buttonClass='z-1 absolute left-[52%] text-s top-[55%] overflow-hidden focus-visible:overflow-visible w-[30px] h-[30px]'
+                  buttonClass='z-[1] absolute left-[52%] text-s top-[55%] overflow-hidden focus-visible:overflow-visible w-[30px] h-[30px]'
                 />
               </>
             )}
-            {/* <MaterialLayer layerData={floorLayers} /> */}
+            {activeLayers.length > 0 &&
+              activeLayers.map(layer => {
+                return <MaterialLayer key={layer.id} layerData={layer} />
+              })}
             {isSelectorOpen && (
               <MaterialSelector
                 closeSelectorAction={toggleSelector}
