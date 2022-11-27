@@ -10,7 +10,7 @@ const Layout = ({ data, backgroundImageSrc }) => {
   const [materialPreview, setMaterialPreview] = useState()
   const [hasLoaded, setHasloaded] = useState(false)
 
-  const openSelector = place => {
+  const toggleSelector = place => {
     const materialsPlaceToShow = currentData.find(
       material => material.place === place
     )
@@ -39,22 +39,22 @@ const Layout = ({ data, backgroundImageSrc }) => {
             {hasLoaded && (
               <>
                 <Fingerprint
-                  action={openSelector}
+                  action={toggleSelector}
                   place={currentData[0].place}
                   buttonClass='z-1 absolute left-[40%] text-s top-[86%] overflow-hidden focus-visible:overflow-visible w-[30px] h-[30px]'
                 />
                 <Fingerprint
-                  action={openSelector}
+                  action={toggleSelector}
                   place={currentData[1].place}
                   buttonClass='z-1 absolute left-[52%] text-s top-[55%] overflow-hidden focus-visible:overflow-visible w-[30px] h-[30px]'
                 />
                 <Fingerprint
-                  action={openSelector}
+                  action={toggleSelector}
                   place={currentData[2].place}
                   buttonClass='z-1 absolute left-[61%] text-s top-[47%] overflow-hidden focus-visible:overflow-visible w-[30px] h-[30px]'
                 />
                 <Fingerprint
-                  action={openSelector}
+                  action={toggleSelector}
                   place={currentData[3].place}
                   buttonClass='z-1 absolute left-[71%] text-s top-[38%] overflow-hidden focus-visible:overflow-visible w-[30px] h-[30px]'
                 />
@@ -62,7 +62,10 @@ const Layout = ({ data, backgroundImageSrc }) => {
             )}
             {/* <MaterialLayer layerData={floorLayers} /> */}
             {isSelectorOpen && (
-              <MaterialSelector materialPreviewList={materialPreview} />
+              <MaterialSelector
+                closeSelectorAction={toggleSelector}
+                materialPreviewList={materialPreview}
+              />
             )}
           </div>
         </div>
