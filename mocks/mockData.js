@@ -61,6 +61,76 @@ const mockDataOrdered = [
         materialPreview: 'https://image.png'
       }
     ]
+  },
+  {
+    place: 'Entrepaños',
+    point: {
+      coordY: 47,
+      coordX: 61,
+      name: 'Entrepaños',
+      id: 'mockid'
+    },
+    materials: [
+      {
+        points: ['i7EVutewtycZY2qwmldG'],
+        name: 'Oxo Line Blanco',
+        layers: {
+          i7EVutewtycZY2qwmldG: 'https://image.png'
+        },
+        materialPreview: 'https://image.png'
+      },
+      {
+        materialPreview: 'https://image.png',
+        layers: {
+          i7EVutewtycZY2qwmldG: 'https://image.png'
+        },
+        points: ['i7EVutewtycZY2qwmldG'],
+        name: 'Oxo Deco Blanco'
+      },
+      {
+        name: 'Marmi China',
+        points: ['i7EVutewtycZY2qwmldG'],
+        layers: {
+          i7EVutewtycZY2qwmldG: 'https://image.png'
+        },
+        materialPreview: 'https://image.png'
+      }
+    ]
+  },
+  {
+    place: 'Entrepaños',
+    point: {
+      coordY: 47,
+      coordX: 61,
+      name: 'Entrepaños',
+      id: 'mockid'
+    },
+    materials: [
+      {
+        points: ['i7EVutewtycZY2qwmldG'],
+        name: 'Oxo Line Blanco',
+        layers: {
+          i7EVutewtycZY2qwmldG: 'https://image.png'
+        },
+        materialPreview: 'https://image.png'
+      },
+      {
+        materialPreview: 'https://image.png',
+        layers: {
+          i7EVutewtycZY2qwmldG: 'https://image.png'
+        },
+        points: ['i7EVutewtycZY2qwmldG'],
+        name: 'Oxo Deco Blanco'
+      },
+      {
+        name: 'Marmi China',
+        points: ['i7EVutewtycZY2qwmldG'],
+        layers: {
+          i7EVutewtycZY2qwmldG: 'https://image.png'
+        },
+        materialPreview: 'https://image.png'
+      }
+    ]
   }
 ]
 

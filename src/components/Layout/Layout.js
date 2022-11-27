@@ -6,9 +6,8 @@ import MaterialSelector from '../MaterialSelector/MaterialSelector'
 
 const Layout = ({ data, backgroundImageSrc }) => {
   const [currentData, setCurrentData] = useState([])
-  // const [floorLayers, setFloorLayers] = useState('')
   const [isSelectorOpen, setIsSelectorOpen] = useState(false)
-  const [floorLayer, setFloorLayer] = useState()
+  const [materialPreview, setMaterialPreview] = useState()
   const [hasLoaded, setHasloaded] = useState(false)
 
   const openSelector = place => {
@@ -16,10 +15,9 @@ const Layout = ({ data, backgroundImageSrc }) => {
       material => material.place === place
     )
 
-    setFloorLayer(materialsPlaceToShow)
+    setMaterialPreview(materialsPlaceToShow)
     setIsSelectorOpen(!isSelectorOpen)
   }
-  console.log(currentData)
   useEffect(() => {
     setCurrentData(data)
     setHasloaded(!hasLoaded)
@@ -64,7 +62,7 @@ const Layout = ({ data, backgroundImageSrc }) => {
             )}
             {/* <MaterialLayer layerData={floorLayers} /> */}
             {isSelectorOpen && (
-              <MaterialSelector materialPreviewList={currentData[1]} />
+              <MaterialSelector materialPreviewList={materialPreview} />
             )}
           </div>
         </div>

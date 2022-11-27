@@ -24,7 +24,7 @@ const MaterialSelector = ({ materialPreviewList }) => {
                 {material.name}
               </div>
 
-              <MaterialSample material={material.materialPreview} />
+              <MaterialSample material={material} />
             </li>
           )
         })}

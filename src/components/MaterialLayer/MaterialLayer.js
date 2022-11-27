@@ -1,6 +1,7 @@
 import Image from 'next/image'
 
 const MaterialLayer = ({ layerData }) => {
+  console.log(layerData)
   return (
     <div className='flex flex-col 2xl:h-auto md:w-full w-[1240px] h-full items-center justify-center absolute'>
       <Image

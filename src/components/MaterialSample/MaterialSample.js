@@ -11,10 +11,10 @@ const MaterialSample = ({ material }) => {
           className='rounded'
           height={80}
           width={80}
-          alt={`${material}material sample`}
-          src={material}
+          alt={`${material.name} material sample`}
+          src={material.materialPreview}
         />
-        Seleccionar el material
+        Select {material.name} material
       </button>
     </div>
   )
