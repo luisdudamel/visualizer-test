@@ -1,5 +1,6 @@
 import Image from 'next/image'
 import { useEffect, useState } from 'react'
+import selectNewLayers from '../../utils/selectNewLayers/selectNewLayers'
 import Fingerprint from '../Fingerprint/Fingerprint'
 import MaterialLayer from '../MaterialLayer/MaterialLayer'
 import MaterialSelector from '../MaterialSelector/MaterialSelector'
@@ -26,10 +27,12 @@ const Layout = ({ data, backgroundImageSrc }) => {
   }, [])
 
   const setNewLayer = newLayer => {
-    setActiveLayers([...activeLayers, newLayer])
+    const newLayerList = selectNewLayers(activeLayers, newLayer)
+    setActiveLayers(newLayerList)
   }
 
   console.log(activeLayers)
+
   return (
     <div className='font-sans bg-layout-container bg-center w-screen h-screen  '>
       <div className='backdrop-blur-2xl flex flex-row items-center justify-center w-full h-full xl:px-[180px]  '>
