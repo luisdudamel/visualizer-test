@@ -1,5 +1,5 @@
 import { render, screen } from '@testing-library/react'
-import { mockMaterialPreview } from '../../../mocks/mockMaterials'
+import { mockMaterialPreview } from '../../mocks/mockMaterials'
 import MaterialSample from './MaterialSample'
 
 describe('Given a MaterialSample function', () => {

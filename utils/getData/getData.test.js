@@ -1,4 +1,4 @@
-import { mockMaterialQuery } from '../../../mocks/mockCollections'
+import { mockMaterialQuery } from '../../mocks/mockCollections'
 import getData from './getData'
 
 jest.mock('../getCollectionData/getCollectionData', () =>

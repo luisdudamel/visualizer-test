@@ -4,7 +4,7 @@ const MaterialLayer = ({ layerData }) => {
   const layerPointReference = layerData.points[0]
 
   return (
-    <div className='flex flex-col 2xl:h-auto md:w-full w-[1240px] h-full items-center justify-center absolute'>
+    <div className='flex flex-col 2xl:h-auto xl:w-full h-full items-center justify-center absolute'>
       <Image
         className='aspect-auto h-full'
         src={layerData.layers[layerPointReference]}

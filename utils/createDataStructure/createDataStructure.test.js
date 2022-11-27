@@ -2,7 +2,7 @@ import {
   mockMaterialsQuery,
   mockPointsList,
   mockPointsQuery
-} from '../../../mocks/mockQueries'
+} from '../../mocks/mockQueries'
 import createDataStructure from './createDataStructure'
 
 describe('Given a createDataStructure function', () => {

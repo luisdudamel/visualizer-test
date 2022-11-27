@@ -11,8 +11,7 @@ const Layout = ({ data, backgroundImageSrc }) => {
   const [materialPreview, setMaterialPreview] = useState()
   const [hasLoaded, setHasloaded] = useState(false)
   const [activeLayers, setActiveLayers] = useState([])
-
-  console.log(activeLayers)
+  const [initialLayers, setInitialLayers] = useState([])
 
   const toggleSelector = place => {
     const materialsPlaceToShow = currentData.find(
@@ -22,15 +21,21 @@ const Layout = ({ data, backgroundImageSrc }) => {
     setMaterialPreview(materialsPlaceToShow)
     setIsSelectorOpen(!isSelectorOpen)
   }
-  useEffect(() => {
-    setCurrentData(data)
-    setHasloaded(!hasLoaded)
-  }, [])
 
   const setNewLayer = newLayer => {
     const newLayerList = selectNewLayers(activeLayers, newLayer)
     setActiveLayers(newLayerList)
   }
+
+  useEffect(() => {
+    setCurrentData(data)
+    setHasloaded(!hasLoaded)
+    setInitialLayers(
+      data.map(place => {
+        return place.materials[0].name
+      })
+    )
+  }, [])
 
   return (
     <div className='font-sans bg-layout-container bg-center w-screen h-screen  '>
@@ -78,6 +83,7 @@ const Layout = ({ data, backgroundImageSrc }) => {
                 closeSelectorAction={toggleSelector}
                 materialPreviewList={materialPreview}
                 setLayers={setNewLayer}
+                currentActiveLayers={initialLayers}
               />
             )}
           </div>

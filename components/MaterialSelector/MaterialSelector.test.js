@@ -1,6 +1,9 @@
 import { render, screen } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
-import { mockMaterialPreviewList } from '../../../mocks/mockMaterials'
+import {
+  mockCurrentActiveLayers,
+  mockMaterialPreviewList
+} from '../../mocks/mockMaterials'
 import MaterialSelector from './MaterialSelector'
 
 describe('Given a MaterialSelector function', () => {
@@ -9,7 +12,12 @@ describe('Given a MaterialSelector function', () => {
       const expectedWoodMaterialText = 'Wood material sample'
       const expectedMetalMaterialText = 'Metal material sample'
 
-      render(<MaterialSelector materialPreviewList={mockMaterialPreviewList} />)
+      render(
+        <MaterialSelector
+          materialPreviewList={mockMaterialPreviewList}
+          currentActiveLayers={mockCurrentActiveLayers}
+        />
+      )
       const woodListItem = screen.getByAltText(expectedWoodMaterialText)
       const metalListItem = screen.getByAltText(expectedMetalMaterialText)
 
@@ -26,6 +34,7 @@ describe('Given a MaterialSelector function', () => {
         render(
           <MaterialSelector
             materialPreviewList={mockMaterialPreviewList}
+            currentActiveLayers={mockCurrentActiveLayers}
             closeSelectorAction={mockCloseFunction}
           />
         )

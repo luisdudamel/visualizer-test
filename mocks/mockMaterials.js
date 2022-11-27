@@ -36,3 +36,15 @@ export const mockMaterialPreviewList = {
     }
   ]
 }
+
+export const mockMaterialLayer = {
+  points: ['mockpoint'],
+  layers: {
+    mockId: 123456789
+  },
+  materialPreview: 'https://mockmaterial.jpg',
+  name: 'Roble Tierra',
+  id: 123456789
+}
+
+export const mockCurrentActiveLayers = ['Wood', 'Metal']
