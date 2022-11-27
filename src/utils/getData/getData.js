@@ -7,6 +7,7 @@ const getData = async collectionToGet => {
   try {
     const materialsCollection = query(collection(database, collectionToGet))
     const materialsQuery = await getCollectionData(materialsCollection)
+
     const pointsToGet = [
       ...new Set(
         materialsQuery.map(material => {
