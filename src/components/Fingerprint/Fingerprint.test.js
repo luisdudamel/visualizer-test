@@ -1,5 +1,6 @@
 import { render, screen } from '@testing-library/react'
 import Fingerprint from './Fingerprint'
+import userEvent from '@testing-library/user-event'
 
 describe('Given a Fingerprint function', () => {
   describe("When it's invoked", () => {
@@ -19,6 +20,20 @@ describe('Given a Fingerprint function', () => {
       const fingerprintImage = screen.getByAltText(expectedAlternativeText)
 
       expect(fingerprintImage).toBeInTheDocument()
+    })
+  })
+
+  describe('When its invoked with receiving a function as parameter and the user clicks the button', () => {
+    test('Then it should call the received function', async () => {
+      const expectedButtonRole = 'button'
+      const mockFunction = jest.fn()
+
+      render(<Fingerprint action={mockFunction} />)
+
+      const fingerPrintButton = screen.getByRole(expectedButtonRole)
+      await userEvent.click(fingerPrintButton)
+
+      expect(mockFunction).toHaveBeenCalled()
     })
   })
 })
