@@ -17,12 +17,17 @@ const MaterialSelector = ({ materialPreviewList }) => {
         Go up
       </button>
       <ul className='py-10 flex-1 flex xl:flex-col gap-[10px]'>
-        <li className='justify-end text-neutral-600 flex h-[70px] flex-row '>
-          <div className='relative  px-2 w-[80px] left-[3px] text-[10px] w-full flex justify-center items-center flex h-full bg-white rounded-l border-white'>
-            Example material
-          </div>
-          <MaterialSample material='https://firebasestorage.googleapis.com/v0/b/visualizer-new-devs-test.appspot.com/o/materials_1565617496107_preview.jpeg?alt=media&token=f6030af0-f889-45b7-a2bd-2f4d959c6b70' />
-        </li>
+        {materialPreviewList.materials.map(material => {
+          return (
+            <li className='justify-end text-neutral-600 flex h-[70px] flex-row '>
+              <div className='relative  px-2 w-[80px] left-[3px] text-[10px] w-full flex justify-center items-center flex h-full bg-white rounded-l border-white'>
+                {material.name}
+              </div>
+
+              <MaterialSample material={material.materialPreview} />
+            </li>
+          )
+        })}
       </ul>
       <button
         type='button'

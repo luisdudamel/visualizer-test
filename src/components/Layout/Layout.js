@@ -63,7 +63,9 @@ const Layout = ({ data, backgroundImageSrc }) => {
               </>
             )}
             {/* <MaterialLayer layerData={floorLayers} /> */}
-            {isSelectorOpen && <MaterialSelector />}
+            {isSelectorOpen && (
+              <MaterialSelector materialPreviewList={currentData[1]} />
+            )}
           </div>
         </div>
       </div>
