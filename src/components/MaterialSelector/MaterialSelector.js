@@ -4,6 +4,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import MaterialSample from '../MaterialSample/MaterialSample'
 
 const MaterialSelector = ({ materialPreviewList }) => {
+  console.log(materialPreviewList)
   return (
     <div className='pl-[10px] items-center flex xl:flex-col h-full absolute xl:top-auto top-[70%] xl:left-[100%]'>
       <button
