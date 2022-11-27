@@ -3,7 +3,19 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
 import MaterialSample from '../MaterialSample/MaterialSample'
 
-const MaterialSelector = ({ materialPreviewList, closeSelectorAction }) => {
+const MaterialSelector = ({
+  materialPreviewList,
+  closeSelectorAction,
+  setLayers
+}) => {
+  const setNewLayer = newLayerToSet => {
+    const newLayerToAdd = materialPreviewList.materials.find(
+      material => material.id === newLayerToSet
+    )
+
+    setLayers(newLayerToAdd)
+  }
+
   return (
     <>
       <div
@@ -40,7 +52,10 @@ const MaterialSelector = ({ materialPreviewList, closeSelectorAction }) => {
                   {material.name}
                 </div>
 
-                <MaterialSample material={material} />
+                <MaterialSample
+                  setLayerFunction={setNewLayer}
+                  material={material}
+                />
               </li>
             )
           })}

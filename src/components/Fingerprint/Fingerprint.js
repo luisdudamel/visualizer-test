@@ -9,6 +9,7 @@ const Fingerprint = ({ buttonClass, action, place }) => {
         alt='Fingerprint icon'
         width={30}
         height={30}
+        priority
       />
       Select Zone
     </button>
