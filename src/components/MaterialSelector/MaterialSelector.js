@@ -9,7 +9,15 @@ const MaterialSelector = ({ materialPreviewList, closeSelectorAction }) => {
       <div
         onClick={() => closeSelectorAction()}
         className='fixed top-0 left-0 w-screen h-screen'
-      ></div>
+        data-testid='selector-close-area'
+      >
+        <button
+          type='button'
+          className='w-[0px] focus-visible:overflow-visible overflow-hidden'
+        >
+          Close material selector
+        </button>
+      </div>
       <div className='pl-[10px] items-center flex xl:flex-col h-full absolute xl:top-auto top-[70%] xl:left-[100%]'>
         <button
           type='button'

@@ -1,4 +1,5 @@
 import { render, screen } from '@testing-library/react'
+import userEvent from '@testing-library/user-event'
 import { mockMaterialPreviewList } from '../../../mocks/mockMaterials'
 import MaterialSelector from './MaterialSelector'
 
@@ -14,6 +15,27 @@ describe('Given a MaterialSelector function', () => {
 
       expect(woodListItem).toBeInTheDocument()
       expect(metalListItem).toBeInTheDocument()
+    })
+  })
+
+  describe('When its invoked with a function', () => {
+    describe('And the user clicks outside the selector area', () => {
+      test('Then it should call the function received`', async () => {
+        const mockCloseFunction = jest.fn()
+
+        render(
+          <MaterialSelector
+            materialPreviewList={mockMaterialPreviewList}
+            closeSelectorAction={mockCloseFunction}
+          />
+        )
+
+        const selectorContainer = screen.getByTestId('selector-close-area')
+
+        await userEvent.click(selectorContainer)
+
+        expect(mockCloseFunction).toHaveBeenCalled()
+      })
     })
   })
 })
