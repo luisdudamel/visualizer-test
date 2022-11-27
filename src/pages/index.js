@@ -2,17 +2,19 @@ import Head from 'next/head'
 import { useEffect, useState } from 'react'
 import Layout from '../components/Layout/Layout'
 import Spinner from '../components/Spinner/Spinner'
-
 import getData from '../utils/getData/getData'
 
 const Home = ({ data }) => {
-  const [currentData, setCurrentData] = useState()
   const [hasLoaded, setHasLoaded] = useState(false)
-  console.log(currentData)
+  const [spinnerText, setSpinnerText] = useState('Loading..')
+  const backgroundSrc = process.env.NEXT_PUBLIC_BACKGROUND_URL
 
   useEffect(() => {
-    setCurrentData(data)
-    setHasLoaded(true)
+    if (typeof data === 'string') {
+      setSpinnerText(data)
+    } else {
+      setHasLoaded(true)
+    }
   }, [])
 
   return (
@@ -23,17 +25,11 @@ const Home = ({ data }) => {
           name='viewport'
           content='width=device-width, initial-scale=1, minimum-scale=1'
         />
-        <title>Visualizer</title>
+        <title>Room 3d Configurator</title>
       </Head>
       <div className='flex flex-col items-center justify-center w-screen h-screen'>
-        {!hasLoaded && <Spinner />}
-        {hasLoaded && (
-          <Layout
-            data={{
-              src: 'https://firebasestorage.googleapis.com/image.png'
-            }}
-          />
-        )}
+        {!hasLoaded && <Spinner messageText={spinnerText} />}
+        {hasLoaded && <Layout data={data} backgroundImageSrc={backgroundSrc} />}
       </div>
     </>
   )

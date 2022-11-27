@@ -1,27 +1,70 @@
 import Image from 'next/image'
+import { useEffect, useState } from 'react'
 import Fingerprint from '../Fingerprint/Fingerprint'
 import MaterialLayer from '../MaterialLayer/MaterialLayer'
+import MaterialSelector from '../MaterialSelector/MaterialSelector'
 
-const Layout = ({ data }) => {
-  const src = process.env.NEXT_PUBLIC_BACKGROUND_URL
+const Layout = ({ data, backgroundImageSrc }) => {
+  const [currentData, setCurrentData] = useState([])
+  const [isSelectorOpen, setIsSelectorOpen] = useState(false)
+  const [materialPreview, setMaterialPreview] = useState()
+  const [hasLoaded, setHasloaded] = useState(false)
+
+  const openSelector = place => {
+    const materialsPlaceToShow = currentData.find(
+      material => material.place === place
+    )
+
+    setMaterialPreview(materialsPlaceToShow)
+    setIsSelectorOpen(!isSelectorOpen)
+  }
+  useEffect(() => {
+    setCurrentData(data)
+    setHasloaded(!hasLoaded)
+  }, [])
 
   return (
-    <div className='bg-layout-container bg-center w-full h-screen 2xl:h-auto '>
-      <div className='backdrop-blur-lg flex flex-col items-center justify-center w-full h-full 2xl:h-auto '>
-        <div className='flex flex-col 2xl:h-auto w-[1240px] h-full items-center justify-center relative'>
-          <Image
-            className='aspect-auto h-full'
-            src={src}
-            alt='Kitchen with a table, 2 chairs and a window'
-            width={1240}
-            height={873}
-            priority
-          />
-          <Fingerprint buttonClass='z-10 absolute 2xl:fixed left-[40%] top-[86%]' />
-          <Fingerprint buttonClass='z-10 absolute 2xl:fixed left-[71%] top-[38%]' />
-          <Fingerprint buttonClass='z-10 absolute 2xl:fixed left-[52%] top-[55%]' />
-          <Fingerprint buttonClass='z-10 absolute 2xl:fixed left-[61%] top-[47%]' />
-          <MaterialLayer layerData={data} />
+    <div className='font-sans bg-layout-container bg-center w-screen h-screen  '>
+      <div className='backdrop-blur-2xl flex flex-row items-center justify-center w-full h-full xl:px-[180px]  '>
+        <div className='flex flex-row'>
+          <div className='flex flex-row items-center justify-center relative'>
+            <Image
+              className='aspect-auto'
+              src={backgroundImageSrc}
+              alt='Kitchen with a table, 2 chairs and a window'
+              width={1240}
+              height={873}
+              priority
+            />
+            {hasLoaded && (
+              <>
+                <Fingerprint
+                  action={openSelector}
+                  place={currentData[0].place}
+                  buttonClass='z-1 absolute left-[40%] text-s top-[86%] overflow-hidden focus-visible:overflow-visible w-[30px] h-[30px]'
+                />
+                <Fingerprint
+                  action={openSelector}
+                  place={currentData[1].place}
+                  buttonClass='z-1 absolute left-[52%] text-s top-[55%] overflow-hidden focus-visible:overflow-visible w-[30px] h-[30px]'
+                />
+                <Fingerprint
+                  action={openSelector}
+                  place={currentData[2].place}
+                  buttonClass='z-1 absolute left-[61%] text-s top-[47%] overflow-hidden focus-visible:overflow-visible w-[30px] h-[30px]'
+                />
+                <Fingerprint
+                  action={openSelector}
+                  place={currentData[3].place}
+                  buttonClass='z-1 absolute left-[71%] text-s top-[38%] overflow-hidden focus-visible:overflow-visible w-[30px] h-[30px]'
+                />
+              </>
+            )}
+            {/* <MaterialLayer layerData={floorLayers} /> */}
+            {isSelectorOpen && (
+              <MaterialSelector materialPreviewList={materialPreview} />
+            )}
+          </div>
         </div>
       </div>
     </div>

@@ -1,3 +1,5 @@
+const { fontFamily } = require('tailwindcss/defaultTheme')
+
 module.exports = {
   content: [
     './node_modules/flowbite-react/**/*.js',
@@ -8,8 +10,10 @@ module.exports = {
     extend: {
       backgroundImage: {
         'layout-container': `url(${process.env.NEXT_PUBLIC_BACKGROUND_URL})`
+      },
+      fontFamily: {
+        sans: ['var(--font-roboto)', ...fontFamily.sans]
       }
     }
-  },
-  plugins: [require('flowbite/plugin')]
+  }
 }
