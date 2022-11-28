@@ -6,7 +6,6 @@ import getData from '../src/utils/getData/getData'
 
 const Home = ({ data }) => {
   const [hasLoaded, setHasLoaded] = useState(false)
-  const [spinnerText, setSpinnerText] = useState('Loading...')
   const backgroundSrc = process.env.NEXT_PUBLIC_BACKGROUND_URL
 
   useEffect(() => {
@@ -28,7 +27,7 @@ const Home = ({ data }) => {
         <title>Room 3d Configurator</title>
       </Head>
       <section className='flex flex-col items-center justify-center w-screen h-screen'>
-        {!hasLoaded && <Spinner messageText={spinnerText} />}
+        {hasLoaded && <Spinner />}
         {hasLoaded && <Layout data={data} backgroundImageSrc={backgroundSrc} />}
       </section>
     </>
