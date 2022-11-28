@@ -5,9 +5,10 @@ import MaterialSample from '../MaterialSample/MaterialSample'
 
 const MaterialSelector = ({
   materialPreviewList,
-  currentActiveLayers,
+  currentActiveLayersData,
   closeSelectorAction,
-  setLayers
+  setLayers,
+  currentActiveLayers
 }) => {
   const setNewLayer = newLayerToSet => {
     const newLayerToAdd = materialPreviewList.materials.find(
@@ -16,7 +17,8 @@ const MaterialSelector = ({
 
     setLayers(newLayerToAdd)
   }
-
+  console.log(currentActiveLayersData)
+  console.log(currentActiveLayers)
   return (
     <>
       <div
@@ -49,7 +51,7 @@ const MaterialSelector = ({
                 key={material.id}
                 className='justify-end text-neutral-600 flex h-[70px] flex-row '
               >
-                {currentActiveLayers.includes(material.name) && (
+                {currentActiveLayersData.includes(material.name) && (
                   <div className='relative px-2 w-[80px] left-[3px] text-[10px] w-full flex justify-center items-center flex h-full bg-white rounded-l border-white'>
                     {material.name}
                   </div>

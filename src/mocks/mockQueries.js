@@ -58,7 +58,7 @@ export const mockPointsList = [
     },
     materials: [
       {
-        name: 'Morse White Nature',
+        name: 'Morse White',
         layers: {
           mockId1: 'https://mockImage.jpg'
         },

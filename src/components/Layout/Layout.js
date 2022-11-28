@@ -8,10 +8,10 @@ import MaterialSelector from '../MaterialSelector/MaterialSelector'
 const Layout = ({ data, backgroundImageSrc }) => {
   const [currentData, setCurrentData] = useState([])
   const [isSelectorOpen, setIsSelectorOpen] = useState(false)
-  const [materialPreview, setMaterialPreview] = useState()
+  const [materialPreview, setMaterialPreview] = useState('')
   const [hasLoaded, setHasloaded] = useState(false)
+  const [activeLayersData, setActiveLayersData] = useState([])
   const [activeLayers, setActiveLayers] = useState([])
-  const [initialLayers, setInitialLayers] = useState([])
 
   const toggleSelector = place => {
     const materialsPlaceToShow = currentData.find(
@@ -23,18 +23,14 @@ const Layout = ({ data, backgroundImageSrc }) => {
   }
 
   const setNewLayer = newLayer => {
-    const newLayerList = selectNewLayers(activeLayers, newLayer)
-    setActiveLayers(newLayerList)
+    const newLayerList = selectNewLayers(activeLayersData, newLayer)
+    setActiveLayersData(newLayerList)
+    setActiveLayers(newLayerList.map(layerData => layerData.name))
   }
 
   useEffect(() => {
     setCurrentData(data)
     setHasloaded(!hasLoaded)
-    setInitialLayers(
-      data.map(place => {
-        return place.materials[0].name
-      })
-    )
   }, [])
 
   return (
@@ -74,8 +70,8 @@ const Layout = ({ data, backgroundImageSrc }) => {
                 />
               </>
             )}
-            {activeLayers.length > 0 &&
-              activeLayers.map(layer => {
+            {activeLayersData.length > 0 &&
+              activeLayersData.map(layer => {
                 return <MaterialLayer key={layer.id} layerData={layer} />
               })}
             {isSelectorOpen && (
@@ -83,7 +79,8 @@ const Layout = ({ data, backgroundImageSrc }) => {
                 closeSelectorAction={toggleSelector}
                 materialPreviewList={materialPreview}
                 setLayers={setNewLayer}
-                currentActiveLayers={initialLayers}
+                currentActiveLayers={activeLayers}
+                currentActiveLayersData={activeLayersData}
               />
             )}
           </div>
