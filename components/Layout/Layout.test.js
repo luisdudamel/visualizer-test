@@ -1,5 +1,5 @@
 import { render, screen } from '@testing-library/react'
-import mockDataOrdered from '../../../mocks/mockData'
+import mockDataOrdered from '../../mocks/mockData'
 import Layout from './Layout'
 
 describe('Given a Layout function', () => {

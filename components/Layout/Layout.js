@@ -1,5 +1,6 @@
 import Image from 'next/image'
 import { useEffect, useState } from 'react'
+import selectNewLayers from '../../utils/selectNewLayers/selectNewLayers'
 import Fingerprint from '../Fingerprint/Fingerprint'
 import MaterialLayer from '../MaterialLayer/MaterialLayer'
 import MaterialSelector from '../MaterialSelector/MaterialSelector'
@@ -9,8 +10,10 @@ const Layout = ({ data, backgroundImageSrc }) => {
   const [isSelectorOpen, setIsSelectorOpen] = useState(false)
   const [materialPreview, setMaterialPreview] = useState()
   const [hasLoaded, setHasloaded] = useState(false)
+  const [activeLayers, setActiveLayers] = useState([])
+  const [initialLayers, setInitialLayers] = useState([])
 
-  const openSelector = place => {
+  const toggleSelector = place => {
     const materialsPlaceToShow = currentData.find(
       material => material.place === place
     )
@@ -18,9 +21,22 @@ const Layout = ({ data, backgroundImageSrc }) => {
     setMaterialPreview(materialsPlaceToShow)
     setIsSelectorOpen(!isSelectorOpen)
   }
+
+  const setNewLayer = newLayer => {
+    console.log(activeLayers)
+    console.log(newLayer)
+    const newLayerList = selectNewLayers(activeLayers, newLayer)
+    setActiveLayers(newLayerList)
+  }
+
   useEffect(() => {
     setCurrentData(data)
     setHasloaded(!hasLoaded)
+    setInitialLayers(
+      data.map(place => {
+        return place.materials[0].name
+      })
+    )
   }, [])
 
   return (
@@ -36,33 +52,41 @@ const Layout = ({ data, backgroundImageSrc }) => {
               height={873}
               priority
             />
-            {hasLoaded && (
+            {hasLoaded && !isSelectorOpen && (
               <>
                 <Fingerprint
-                  action={openSelector}
+                  action={toggleSelector}
                   place={currentData[0].place}
-                  buttonClass='z-1 absolute left-[40%] text-s top-[86%] overflow-hidden focus-visible:overflow-visible w-[30px] h-[30px]'
+                  buttonClass='z-[1] absolute left-[40%] text-s top-[86%] overflow-hidden focus-visible:overflow-visible w-[30px] h-[30px]'
                 />
                 <Fingerprint
-                  action={openSelector}
+                  action={toggleSelector}
                   place={currentData[1].place}
-                  buttonClass='z-1 absolute left-[52%] text-s top-[55%] overflow-hidden focus-visible:overflow-visible w-[30px] h-[30px]'
+                  buttonClass='z-[1] absolute left-[61%] text-s top-[47%] overflow-hidden focus-visible:overflow-visible w-[30px] h-[30px]'
                 />
                 <Fingerprint
-                  action={openSelector}
+                  action={toggleSelector}
                   place={currentData[2].place}
-                  buttonClass='z-1 absolute left-[61%] text-s top-[47%] overflow-hidden focus-visible:overflow-visible w-[30px] h-[30px]'
+                  buttonClass='z-[1] absolute left-[71%] text-s top-[38%] overflow-hidden focus-visible:overflow-visible w-[30px] h-[30px]'
                 />
                 <Fingerprint
-                  action={openSelector}
+                  action={toggleSelector}
                   place={currentData[3].place}
-                  buttonClass='z-1 absolute left-[71%] text-s top-[38%] overflow-hidden focus-visible:overflow-visible w-[30px] h-[30px]'
+                  buttonClass='z-[1] absolute left-[52%] text-s top-[55%] overflow-hidden focus-visible:overflow-visible w-[30px] h-[30px]'
                 />
               </>
             )}
-            {/* <MaterialLayer layerData={floorLayers} /> */}
+            {activeLayers.length > 0 &&
+              activeLayers.map(layer => {
+                return <MaterialLayer key={layer.id} layerData={layer} />
+              })}
             {isSelectorOpen && (
-              <MaterialSelector materialPreviewList={materialPreview} />
+              <MaterialSelector
+                closeSelectorAction={toggleSelector}
+                materialPreviewList={materialPreview}
+                setLayers={setNewLayer}
+                currentActiveLayers={initialLayers}
+              />
             )}
           </div>
         </div>
