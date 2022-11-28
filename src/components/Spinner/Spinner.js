@@ -3,7 +3,7 @@ const Spinner = ({ messageText }) => {
     <div className='z-10 fixed w-full h-full bg-gray-700/20'>
       <div
         role='status'
-        className='w-[200px] h-[200px] absolute top-[50%] left-[50%] -translate-x-1/2 -translate-y-1/2'
+        className='w-[100px] h-[100px] absolute top-[50%] left-[50%] -translate-x-1/2 -translate-y-1/2'
       >
         <svg
           version='1.1'

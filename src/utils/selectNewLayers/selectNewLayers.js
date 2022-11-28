@@ -16,7 +16,7 @@ const selectNewLayers = (currentLayers, newLayer) => {
         )
         resolve([...filteredLayerList, newLayer])
       } else resolve([...currentLayers, newLayer])
-    }, 300)
+    }, 200)
   })
 }
 
