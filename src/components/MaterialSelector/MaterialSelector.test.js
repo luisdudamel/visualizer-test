@@ -44,5 +44,26 @@ describe('Given a MaterialSelector function', () => {
         expect(mockCloseFunction).toHaveBeenCalled()
       })
     })
+
+    describe('And the user clicks on a material with the alternative name `Wood material sample` received', () => {
+      test('Then it should call the function received`', async () => {
+        const mockSetFunction = jest.fn()
+        const expectedListRole = 'Wood material sample'
+
+        render(
+          <MaterialSelector
+            materialPreviewList={mockMaterialPreviewList}
+            currentActiveLayers={mockCurrentActiveLayers}
+            setLayers={mockSetFunction}
+          />
+        )
+
+        const materialListItem = screen.getByAltText(expectedListRole)
+
+        await userEvent.click(materialListItem)
+
+        expect(mockSetFunction).toHaveBeenCalled()
+      })
+    })
   })
 })
