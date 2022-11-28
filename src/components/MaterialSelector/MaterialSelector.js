@@ -17,8 +17,7 @@ const MaterialSelector = ({
 
     setLayers(newLayerToAdd)
   }
-  console.log(currentActiveLayersData)
-  console.log(currentActiveLayers)
+
   return (
     <>
       <div
