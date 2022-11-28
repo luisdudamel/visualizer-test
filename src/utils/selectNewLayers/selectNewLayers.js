@@ -3,17 +3,17 @@ const selectNewLayers = (currentLayers, newLayer) => {
     layer => layer.points[0] === newLayer.points[0]
   )
 
-  switch (true) {
-    case !currentLayers.includes(newLayer) &&
-      currentLayers.includes(currentPointLayer):
-      const filteredLayerList = currentLayers.filter(
-        layer => layer.points[0] !== newLayer.points[0]
-      )
-      return [...filteredLayerList, newLayer]
-
-    default:
-      return [...currentLayers, newLayer]
-  }
+  if (currentLayers.includes(newLayer)) {
+    return [...currentLayers]
+  } else if (
+    !currentLayers.includes(newLayer) &&
+    currentLayers.includes(currentPointLayer)
+  ) {
+    const filteredLayerList = currentLayers.filter(
+      layer => layer.points[0] !== newLayer.points[0]
+    )
+    return [...filteredLayerList, newLayer]
+  } else return [...currentLayers, newLayer]
 }
 
 export default selectNewLayers
