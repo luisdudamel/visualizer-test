@@ -37,13 +37,11 @@ const Layout = ({ data, backgroundImageSrc }) => {
     )
   }, [])
 
-  console.log(activeLayers)
-
   return (
     <div className='font-sans bg-layout-container bg-center w-screen h-screen  '>
       <div className='backdrop-blur-2xl flex flex-row items-center justify-center w-full h-full xl:px-[180px]  '>
         <div className='flex flex-row'>
-          <div className='flex flex-row items-center justify-center relative'>
+          <div className='flex xl:flex-row flex-col items-center justify-center relative'>
             <Image
               className='aspect-auto'
               src={backgroundImageSrc}

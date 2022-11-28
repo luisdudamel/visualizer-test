@@ -31,7 +31,7 @@ const MaterialSelector = ({
           Close material selector
         </button>
       </div>
-      <div className='pl-[10px] items-center flex xl:flex-col h-full absolute xl:top-auto top-[70%] xl:left-[100%]'>
+      <div className='xl:pl-[10px] justify-center top-[110%] h-[80px] xl:h-full w-full xl:w-auto items-center flex xl:flex-col h-full absolute xl:top-auto xl:left-[100%]'>
         <button
           type='button'
           className='z-2 h-[30px] w-[30px] overflow-hidden text-[12px] focus-visible:overflow-visible'
@@ -42,7 +42,7 @@ const MaterialSelector = ({
           />
           Go up
         </button>
-        <ul className='py-10 flex-1 flex xl:flex-col gap-[10px]'>
+        <ul className='py-10 xl:flex-1 flex xl:flex-col gap-[10px]'>
           {materialPreviewList.materials.map(material => {
             return (
               <li
