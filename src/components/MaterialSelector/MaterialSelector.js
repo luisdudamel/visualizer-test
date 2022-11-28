@@ -51,10 +51,12 @@ const MaterialSelector = ({
                 key={material.id}
                 className='justify-end text-neutral-600 flex h-[70px] flex-row '
               >
-                {currentActiveLayers.includes(material.name) && (
+                {currentActiveLayers.includes(material.name) ? (
                   <div className='relative px-2 w-[80px] left-[3px] text-[10px] w-full flex justify-center items-center flex h-full bg-white rounded-l border-white'>
                     {material.name}
                   </div>
+                ) : (
+                  <div className='relative px-2 w-[80px] left-[3px] text-[10px] w-full flex justify-center items-center flex h-full rounded-l border-white'></div>
                 )}
 
                 <MaterialSample
