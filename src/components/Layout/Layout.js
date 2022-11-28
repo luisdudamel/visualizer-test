@@ -4,6 +4,7 @@ import selectNewLayers from '../../utils/selectNewLayers/selectNewLayers'
 import Fingerprint from '../Fingerprint/Fingerprint'
 import MaterialLayer from '../MaterialLayer/MaterialLayer'
 import MaterialSelector from '../MaterialSelector/MaterialSelector'
+import Spinner from '../Spinner/Spinner'
 
 const Layout = ({ data, backgroundImageSrc }) => {
   const [currentData, setCurrentData] = useState([])
@@ -22,10 +23,12 @@ const Layout = ({ data, backgroundImageSrc }) => {
     setIsSelectorOpen(!isSelectorOpen)
   }
 
-  const setNewLayer = newLayer => {
-    const newLayerList = selectNewLayers(activeLayersData, newLayer)
+  const setNewLayer = async newLayer => {
+    setHasloaded(false)
+    const newLayerList = await selectNewLayers(activeLayersData, newLayer)
     setActiveLayersData(newLayerList)
     setActiveLayers(newLayerList.map(layerData => layerData.name))
+    setHasloaded(true)
   }
 
   useEffect(() => {
@@ -35,6 +38,7 @@ const Layout = ({ data, backgroundImageSrc }) => {
 
   return (
     <div className='font-sans bg-layout-container bg-center w-screen h-screen  '>
+      {!hasLoaded && <Spinner />}
       <div className='backdrop-blur-2xl flex flex-row items-center justify-center w-full h-full xl:px-[180px]  '>
         <div className='flex flex-row'>
           <div className='flex xl:flex-row flex-col items-center justify-center relative'>

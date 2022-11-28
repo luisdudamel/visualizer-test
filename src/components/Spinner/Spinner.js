@@ -1,4 +1,4 @@
-const Spinner = () => {
+const Spinner = ({ messageText }) => {
   return (
     <div className='z-10 fixed w-full h-full bg-gray-700/20'>
       <div
@@ -42,6 +42,9 @@ const Spinner = () => {
             />
           </circle>
         </svg>
+        <span className='text-slate-200/90 absolute top-[60%] left-[50%] -translate-x-1/2 translate-y-1/2'>
+          {messageText}
+        </span>
       </div>
     </div>
   )

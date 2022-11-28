@@ -6,13 +6,14 @@ import getData from '../src/utils/getData/getData'
 
 const Home = ({ data }) => {
   const [hasLoaded, setHasLoaded] = useState(false)
+  const [spinnerText, setSpinnerText] = useState('')
   const backgroundSrc = process.env.NEXT_PUBLIC_BACKGROUND_URL
 
   useEffect(() => {
     if (typeof data === 'string') {
       setSpinnerText(data)
     } else {
-      setHasLoaded(true)
+      setHasLoaded(!hasLoaded)
     }
   }, [])
 
@@ -24,10 +25,10 @@ const Home = ({ data }) => {
           name='viewport'
           content='width=device-width, initial-scale=1, minimum-scale=1'
         />
-        <title>Room 3d Configurator</title>
+        <title>3D Room Configurator</title>
       </Head>
       <section className='flex flex-col items-center justify-center w-screen h-screen'>
-        {hasLoaded && <Spinner />}
+        {!hasLoaded && <Spinner messageText={spinnerText} />}
         {hasLoaded && <Layout data={data} backgroundImageSrc={backgroundSrc} />}
       </section>
     </>
