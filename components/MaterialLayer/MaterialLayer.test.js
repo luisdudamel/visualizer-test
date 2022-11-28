@@ -1,5 +1,5 @@
 import { render, screen } from '@testing-library/react'
-import { mockMaterialLayer } from '../../mocks/mockMaterials'
+import { mockMaterialLayer } from '../../mocks/mockLayers'
 import MaterialLayer from './MaterialLayer'
 
 describe('Given a MaterialLayer function', () => {

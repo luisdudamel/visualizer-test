@@ -4,9 +4,6 @@ const selectNewLayers = (currentLayers, newLayer) => {
   )
 
   switch (true) {
-    case currentLayers.includes(newLayer):
-      return [...currentLayers]
-
     case !currentLayers.includes(newLayer) &&
       currentLayers.includes(currentPointLayer):
       const filteredLayerList = currentLayers.filter(

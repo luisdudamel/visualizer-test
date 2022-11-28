@@ -9,7 +9,6 @@ const MaterialSelector = ({
   closeSelectorAction,
   setLayers
 }) => {
-  debugger
   const setNewLayer = newLayerToSet => {
     const newLayerToAdd = materialPreviewList.materials.find(
       material => material.id === newLayerToSet

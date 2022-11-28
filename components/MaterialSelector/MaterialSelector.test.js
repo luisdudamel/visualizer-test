@@ -1,9 +1,7 @@
 import { render, screen } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
-import {
-  mockCurrentActiveLayers,
-  mockMaterialPreviewList
-} from '../../mocks/mockMaterials'
+import { mockCurrentActiveLayers } from '../../mocks/mockLayers'
+import { mockMaterialPreviewList } from '../../mocks/mockMaterials'
 import MaterialSelector from './MaterialSelector'
 
 describe('Given a MaterialSelector function', () => {
