@@ -36,9 +36,9 @@ const MaterialSelector = ({
       <div className='xl:pl-[10px] justify-center top-[110%] h-[80px] xl:h-full w-full xl:w-auto items-center flex xl:flex-col h-full absolute xl:top-auto xl:left-[100%]'>
         <button
           type='button'
-          className='z-2 h-[30px] w-[100%] text-end overflow-hidden text-[12px] focus-visible:overflow-visible'
+          className='z-2 h-[30px] w-[100%] text-start xl:text-end overflow-hidden text-[12px] focus-visible:overflow-visible'
         >
-          <div>
+          <div className='pl-[15px] xl:pr-[15px]'>
             <FontAwesomeIcon
               className='text-white text-center text-2xl xl:rotate-0 -rotate-90'
               icon={faChevronUp}
@@ -73,7 +73,7 @@ const MaterialSelector = ({
           type='button'
           className='z-2 h-[30px] w-[100%] text-end overflow-hidden text-[12px] focus-visible:overflow-visible'
         >
-          <div>
+          <div className='pr-[15px]'>
             <FontAwesomeIcon
               className='text-white text-center text-2xl xl:rotate-0 -rotate-90'
               icon={faChevronDown}
