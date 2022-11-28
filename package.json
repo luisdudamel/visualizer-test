@@ -13,7 +13,8 @@
     "start": "next start",
     "test": "jest",
     "test:watch": "jest --watchAll",
-    "test:coverage": "npm run test -- --coverage"
+    "test:coverage": "npm run test -- --coverage",
+    "lint": "npx standard"
   },
   "dependencies": {
     "@fortawesome/fontawesome-free": "^6.2.1",
@@ -43,8 +44,6 @@
     "tailwindcss": "^3.2.4"
   },
   "standard": {
-    "env": [
-      "jest"
-    ]
+    "env": ["jest"]
   }
 }

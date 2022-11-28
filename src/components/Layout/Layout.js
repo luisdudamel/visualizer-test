@@ -37,6 +37,8 @@ const Layout = ({ data, backgroundImageSrc }) => {
     )
   }, [])
 
+  console.log(activeLayers)
+
   return (
     <div className='font-sans bg-layout-container bg-center w-screen h-screen  '>
       <div className='backdrop-blur-2xl flex flex-row items-center justify-center w-full h-full xl:px-[180px]  '>
