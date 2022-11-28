@@ -23,8 +23,6 @@ const Layout = ({ data, backgroundImageSrc }) => {
   }
 
   const setNewLayer = newLayer => {
-    console.log(activeLayers)
-    console.log(newLayer)
     const newLayerList = selectNewLayers(activeLayers, newLayer)
     setActiveLayers(newLayerList)
   }
