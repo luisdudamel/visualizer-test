@@ -6,7 +6,7 @@ const MaterialSample = ({ material, setLayerFunction }) => {
       <button
         onClick={() => setLayerFunction(material.id)}
         type='button'
-        className='bg-white text-s text-left rounded border-[3px] border-white overflow-hidden focus-visible:overflow-visible h-[70px] w-[70px]'
+        className='bg-white transition-all duration-800 text-s text-left rounded border-[3px] border-white overflow-hidden focus-visible:overflow-visible h-[70px] w-[70px]'
       >
         <Image
           className='rounded'
