@@ -27,10 +27,10 @@ const Home = ({ data }) => {
         />
         <title>Room 3d Configurator</title>
       </Head>
-      <div className='flex flex-col items-center justify-center w-screen h-screen'>
+      <section className='flex flex-col items-center justify-center w-screen h-screen'>
         {!hasLoaded && <Spinner messageText={spinnerText} />}
         {hasLoaded && <Layout data={data} backgroundImageSrc={backgroundSrc} />}
-      </div>
+      </section>
     </>
   )
 }
