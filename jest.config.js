@@ -16,7 +16,7 @@ module.exports = {
 
     '^@/components/(.*)$': '<rootDir>/components/$1',
 
-    '^@/pages/(.*)$': '<rootDir>/pages/$1'
+    '^@/src/pages/(.*)$': '<rootDir>/src/pages/$1'
   },
   setupFilesAfterEnv: ['<rootDir>/jest.setup.js'],
   testPathIgnorePatterns: ['<rootDir>/node_modules/', '<rootDir>/.next/'],
