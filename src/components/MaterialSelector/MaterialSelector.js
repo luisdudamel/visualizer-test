@@ -25,7 +25,7 @@ const MaterialSelector = ({
   }, [])
 
   const scroll = scrollOffset => {
-    if (scrollRef.current.scrollLeft == null) {
+    if (scrollRef.current == null) {
       return
     }
 
