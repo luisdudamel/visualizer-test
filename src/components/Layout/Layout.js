@@ -40,8 +40,8 @@ const Layout = ({ data, backgroundImageSrc }) => {
     <div className='font-sans bg-layout-container bg-center w-screen h-screen  '>
       {!hasLoaded && <Spinner />}
       <div className='backdrop-blur-2xl flex flex-row items-center justify-center w-full h-full xl:px-[180px]  '>
-        <div className='flex w-full h-full flex-row'>
-          <div className='flex xl:flex-row w-full h-full flex-col items-center justify-center relative'>
+        <div className='flex w-full h-full items-center flex-row'>
+          <div className='flex xl:flex-row w-full h-[50%] sm:h-full flex-col items-center justify-center relative'>
             <Image
               className='aspect-auto'
               src={backgroundImageSrc}
