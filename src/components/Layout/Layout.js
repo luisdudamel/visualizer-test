@@ -40,14 +40,19 @@ const Layout = ({ data, backgroundImageSrc }) => {
     <div className='font-sans bg-layout-container bg-center w-screen h-screen  '>
       {!hasLoaded && <Spinner />}
       <div className='backdrop-blur-2xl flex flex-row items-center justify-center w-full h-full xl:px-[180px]  '>
-        <div className='flex flex-row'>
-          <div className='flex xl:flex-row flex-col items-center justify-center relative'>
+        <div className='flex w-full h-full flex-row'>
+          <div className='flex xl:flex-row w-full h-full flex-col items-center justify-center relative'>
             <Image
               className='aspect-auto'
               src={backgroundImageSrc}
               alt='Kitchen with a table, 2 chairs and a window'
-              width={1240}
-              height={873}
+              fill
+              sizes='(max-width: 768px) 100%,
+              (max-width: 1200px) 50%,
+              33%
+              
+              '
+              quality={100}
               priority
             />
             {hasLoaded && !isSelectorOpen && (

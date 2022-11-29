@@ -46,7 +46,7 @@ const MaterialSelector = ({
           Close material selector
         </button>
       </div>
-      <div className='xl:ml-[10px] lg:items-end justify-center top-[110%] h-[80px] xl:h-full w-full xl:w-[150px] items-center flex xl:flex-col h-full absolute xl:top-auto xl:left-[100%]'>
+      <div className='xl:ml-[10px] xl:items-end justify-center top-[110%] h-[80px] xl:h-full w-full xl:w-[150px] items-center flex xl:flex-col h-full absolute xl:top-auto xl:left-[100%]'>
         <button
           onClick={() => scroll(-80)}
           type='button'
