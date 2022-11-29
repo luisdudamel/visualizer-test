@@ -6,7 +6,7 @@ const selectNewLayers = (currentLayers, newLayer) => {
       )
 
       if (currentLayers.includes(newLayer)) {
-        resolve([...currentLayers])
+        resolve(currentLayers.filter(layer => layer !== newLayer))
       } else if (
         !currentLayers.includes(newLayer) &&
         currentLayers.includes(currentPointLayer)
