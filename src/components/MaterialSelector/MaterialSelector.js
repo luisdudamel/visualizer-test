@@ -27,7 +27,6 @@ const MaterialSelector = ({
 
   const scroll = scrollOffset => {
     scrollRef.current.scrollLeft += scrollOffset
-    console.log(scrollRef)
   }
 
   return (
@@ -63,15 +62,15 @@ const MaterialSelector = ({
           ref={selectorRef}
           className={
             materialPreviewList.materials.length > 2
-              ? 'py-10 xl:flex-1 w-[500px] xl:w-[200px] xl:overflow-visible flex xl:flex-col gap-[10px] no-scrollbar justify-between xl:justify-start sm:justify-center overflow-x-scroll'
-              : 'py-10 xl:flex-1 w-[500px] xl:w-[200px] xl:overflow-visible flex xl:flex-col gap-[10px] no-scrollbar justify-center xl:justify-start overflow-x-scroll'
+              ? 'py-10 xl:flex-1 w-[500px] xl:w-[200px] xl:overflow-visible flex xl:flex-col gap-[10px] no-scrollbar scroll-smooth justify-between xl:justify-start sm:justify-center overflow-x-scroll'
+              : 'py-10 xl:flex-1 w-[500px] xl:w-[200px] xl:overflow-visible flex xl:flex-col gap-[10px] no-scrollbar scroll-smooth justify-center xl:justify-start overflow-x-scroll'
           }
         >
           {materialPreviewList.materials.map(material => {
             return (
               <li
                 key={material.id}
-                className='justify-end lg:w-[180px] sm:max-xl:w-auto text-neutral-600 flex h-[70px] flex-row '
+                className='drop-shadow justify-end lg:w-[180px] sm:max-xl:w-auto text-neutral-600 flex h-[70px] flex-row '
               >
                 {currentActiveLayers.includes(material.name) ? (
                   <div className='relative px-2 transition-all duration-800 w-[100px] left-[3px] lg:w-[80px] text-[10px] w-full flex justify-center items-center flex h-full bg-white rounded-l border-white'>

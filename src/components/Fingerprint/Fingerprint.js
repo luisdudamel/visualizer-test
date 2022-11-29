@@ -4,7 +4,7 @@ const Fingerprint = ({ buttonClass, action, place }) => {
   return (
     <button onClick={() => action(place)} type='button' className={buttonClass}>
       <Image
-        className='z-1 md:w-[30px] w-[30px] md:h-[30px] h-[30px]'
+        className='z-1 xl:w-[40px] xl:h-[40px] w-[30px] h-[30px] transition-all duration-800 hover:opacity-40'
         src='/img/fingerprint.svg'
         alt='Fingerprint icon'
         width={30}
