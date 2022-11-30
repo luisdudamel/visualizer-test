@@ -62,6 +62,7 @@ const MaterialSelector = ({
               ? 'sm:justify-center  justify-between'
               : 'justify-center'
           }`}
+          tor
         >
           {materialPreviewList.materials.map(material => {
             return (
