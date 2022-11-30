@@ -7,7 +7,7 @@ describe('Given a Fingerprint function', () => {
     test('Then it should render a button', () => {
       const expectedButtonRole = 'button'
 
-      render(<Fingerprint />)
+      render(<Fingerprint coordinates={{ coordX: 20, coordY: 30 }} />)
       const fingerprintButon = screen.getByRole(expectedButtonRole)
 
       expect(fingerprintButon).toBeInTheDocument()
@@ -16,7 +16,7 @@ describe('Given a Fingerprint function', () => {
     test("Then it should render an image with the alternative text 'Fingerprint icon'", () => {
       const expectedAlternativeText = 'Fingerprint icon'
 
-      render(<Fingerprint />)
+      render(<Fingerprint coordinates={{ coordX: 20, coordY: 30 }} />)
       const fingerprintImage = screen.getByAltText(expectedAlternativeText)
 
       expect(fingerprintImage).toBeInTheDocument()
@@ -28,7 +28,12 @@ describe('Given a Fingerprint function', () => {
       const expectedButtonRole = 'button'
       const mockFunction = jest.fn()
 
-      render(<Fingerprint action={mockFunction} />)
+      render(
+        <Fingerprint
+          action={mockFunction}
+          coordinates={{ coordX: 20, coordY: 30 }}
+        />
+      )
 
       const fingerPrintButton = screen.getByRole(expectedButtonRole)
       await userEvent.click(fingerPrintButton)

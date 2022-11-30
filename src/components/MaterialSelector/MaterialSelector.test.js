@@ -9,7 +9,7 @@ import MaterialSelector from './MaterialSelector'
 
 describe('Given a MaterialSelector function', () => {
   describe("When it's invoked with a place `Window` and two materials: `Wood` and `Metal` ", () => {
-    test.skip('Then it should render a list of two materials images with the alternative text `Wood material sample` and `Metal material sample`', () => {
+    test('Then it should render a list of two materials images with the alternative text `Wood material sample` and `Metal material sample`', () => {
       const expectedWoodMaterialText = 'Wood material sample'
       const expectedMetalMaterialText = 'Metal material sample'
 
