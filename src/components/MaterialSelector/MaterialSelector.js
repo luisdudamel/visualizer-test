@@ -10,7 +10,6 @@ const MaterialSelector = ({
   setLayers,
   currentActiveLayers
 }) => {
-  const [scrollRef, setScrollRef] = useState()
   const selectorRef = useRef(null)
   const setNewLayer = newLayerToSet => {
     const newLayerToAdd = materialPreviewList.materials.find(
@@ -20,16 +19,10 @@ const MaterialSelector = ({
     setLayers(newLayerToAdd)
   }
 
-  useEffect(() => {
-    setScrollRef(selectorRef)
-  }, [])
-
-  const scroll = scrollOffset => {
-    if (scrollRef.current == null) {
-      return
-    }
-
-    scrollRef.current.scrollLeft += scrollOffset
+  const scroll = (ref, scrollOffset) => {
+    try {
+      ref.current.scrollLeft += scrollOffset
+    } catch {}
   }
 
   return (
@@ -48,7 +41,7 @@ const MaterialSelector = ({
       </div>
       <div className='xl:ml-[10px] xl: py-[30px] xl:items-end justify-center top-[110%] h-[80px] xl:h-full w-full xl:w-[150px] items-center flex xl:flex-col h-full absolute xl:top-auto xl:left-[100%]'>
         <button
-          onClick={() => scroll(-80)}
+          onClick={() => scroll(selectorRef, -80)}
           type='button'
           className='z-2 h-[30px] w-[100px] flex-2 text-start xl:text-end overflow-hidden text-[12px] focus-visible:overflow-visible'
         >
@@ -96,7 +89,7 @@ const MaterialSelector = ({
         </ul>
 
         <button
-          onClick={() => scroll(80)}
+          onClick={() => scroll(selectorRef, 80)}
           type='button'
           className='z-2 h-[30px] flex-2 w-[100px] text-end overflow-hidden text-[12px] focus-visible:overflow-visible'
         >

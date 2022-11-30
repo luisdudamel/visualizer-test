@@ -14,12 +14,14 @@ const Layout = ({ data: currentData, backgroundImageSrc }) => {
   const [activeLayers, setActiveLayers] = useState([])
 
   const toggleSelector = place => {
-    const materialsPlaceToShow = data.find(material => material.place === place)
+    const materialsPlaceToShow = currentData.find(
+      material => material.place === place
+    )
 
     setMaterialPreview(materialsPlaceToShow)
     setIsSelectorOpen(!isSelectorOpen)
   }
-  console.log(currentData)
+
   const setNewLayer = async newLayer => {
     setHasloaded(false)
     const newLayerList = await selectNewLayers(activeLayersData, newLayer)
