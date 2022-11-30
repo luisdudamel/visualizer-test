@@ -25,6 +25,11 @@ const Home = ({ data }) => {
           name='viewport'
           content='width=device-width, initial-scale=1, minimum-scale=1'
         />
+        <meta
+          name='description'
+          content='Customize your room, with our 3D Room configurator'
+          key='desc'
+        />
         <title>3D Room Configurator</title>
       </Head>
       <section className='flex flex-col items-center justify-center w-screen h-screen'>
