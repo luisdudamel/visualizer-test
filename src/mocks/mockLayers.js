@@ -10,6 +10,8 @@ export const mockMaterialLayer = {
 
 export const mockCurrentActiveLayers = ['Wood', 'Metal']
 
+export const mockCurrentActiveIndividualLayer = ['Wood']
+
 export const mockNewLayer = {
   materialPreview: 'https://gold.jpg',
   layers: {
