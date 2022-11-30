@@ -1,6 +1,6 @@
 import { faChevronDown, faChevronUp } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { useEffect, useRef, useState } from 'react'
+import { useRef } from 'react'
 
 import MaterialSample from '../MaterialSample/MaterialSample'
 
@@ -21,7 +21,6 @@ const MaterialSelector = ({
   }
 
   const scroll = (ref, scrollOffset) => {
-    console.log(ref.current.scrollLeft)
     try {
       ref.current.scrollLeft += scrollOffset
     } catch {}

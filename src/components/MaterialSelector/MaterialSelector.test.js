@@ -7,14 +7,6 @@ import {
 } from '../../mocks/mockMaterials'
 import MaterialSelector from './MaterialSelector'
 
-jest.mock('react', () => ({
-  ...jest.requireActual('react'),
-  useRef: jest
-    .fn()
-    .mockReturnValueOnce('mockRef')
-    .mockReturnValueOnce('mockRef')
-}))
-
 describe('Given a MaterialSelector function', () => {
   describe("When it's invoked with a place `Window` and two materials: `Wood` and `Metal` ", () => {
     test.skip('Then it should render a list of two materials images with the alternative text `Wood material sample` and `Metal material sample`', () => {
@@ -37,7 +29,7 @@ describe('Given a MaterialSelector function', () => {
 
   describe('When its invoked with a function', () => {
     describe('And the user clicks outside the selector area', () => {
-      test.skip('Then it should call the function received`', async () => {
+      test('Then it should call the function received`', async () => {
         const mockCloseFunction = jest.fn()
 
         render(
@@ -78,21 +70,11 @@ describe('Given a MaterialSelector function', () => {
     })
   })
 
-  describe("When it's invoked with three materials", () => {
+  describe("When it's invoked with three materials list", () => {
     describe('And the user clicks on the button with the alternative text `Next`', () => {
-      test('Then it should call the scroll function', async () => {
-        const mockRef = {
-          current: {
-            scrollLeft: 0
-          }
-        }
-
+      test('Then it should move the materials list 80px to left', async () => {
         const expectedButtonText = 'Next'
-        const expectedRef = {
-          current: {
-            scrollLeft: 20
-          }
-        }
+        const expectedOffset = 80
 
         render(
           <MaterialSelector
@@ -113,7 +95,9 @@ describe('Given a MaterialSelector function', () => {
         })
         await userEvent.click(nextButton)
 
-        expect(mockRef).toBe(expectedRef)
+        const materialsList = screen.getByRole('list')
+
+        expect(materialsList.scrollLeft).toBe(expectedOffset)
       })
     })
   })
