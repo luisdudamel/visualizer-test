@@ -6,23 +6,20 @@ import MaterialLayer from '../MaterialLayer/MaterialLayer'
 import MaterialSelector from '../MaterialSelector/MaterialSelector'
 import Spinner from '../Spinner/Spinner'
 
-const Layout = ({ data, backgroundImageSrc }) => {
-  const [currentData, setCurrentData] = useState([])
+const Layout = ({ data: currentData, backgroundImageSrc }) => {
   const [isSelectorOpen, setIsSelectorOpen] = useState(false)
   const [materialPreview, setMaterialPreview] = useState('')
-  const [hasLoaded, setHasloaded] = useState(false)
+  const [hasLoaded, setHasloaded] = useState(true)
   const [activeLayersData, setActiveLayersData] = useState([])
   const [activeLayers, setActiveLayers] = useState([])
 
   const toggleSelector = place => {
-    const materialsPlaceToShow = currentData.find(
-      material => material.place === place
-    )
+    const materialsPlaceToShow = data.find(material => material.place === place)
 
     setMaterialPreview(materialsPlaceToShow)
     setIsSelectorOpen(!isSelectorOpen)
   }
-
+  console.log(currentData)
   const setNewLayer = async newLayer => {
     setHasloaded(false)
     const newLayerList = await selectNewLayers(activeLayersData, newLayer)
@@ -30,11 +27,6 @@ const Layout = ({ data, backgroundImageSrc }) => {
     setActiveLayers(newLayerList.map(layerData => layerData.name))
     setHasloaded(true)
   }
-
-  useEffect(() => {
-    setCurrentData(data)
-    setHasloaded(!hasLoaded)
-  }, [])
 
   return (
     <div className='font-sans bg-layout-container bg-center w-screen h-screen  '>
@@ -57,26 +49,15 @@ const Layout = ({ data, backgroundImageSrc }) => {
             />
             {hasLoaded && !isSelectorOpen && (
               <>
-                <Fingerprint
-                  action={toggleSelector}
-                  place={currentData[0].place}
-                  buttonClass='z-[1] absolute left-[40%] text-s top-[86%] overflow-hidden focus-visible:overflow-visible xl:w-[40px] xl:h-[40px] w-[30px] h-[30px]'
-                />
-                <Fingerprint
-                  action={toggleSelector}
-                  place={currentData[1].place}
-                  buttonClass='z-[1] absolute left-[61%] text-s top-[47%] overflow-hidden focus-visible:overflow-visible xl:w-[40px] xl:h-[40px] w-[30px] h-[30px]'
-                />
-                <Fingerprint
-                  action={toggleSelector}
-                  place={currentData[2].place}
-                  buttonClass='z-[1] absolute left-[71%] text-s top-[38%] overflow-hidden focus-visible:overflow-visible xl:w-[40px] xl:h-[40px] w-[30px] h-[30px]'
-                />
-                <Fingerprint
-                  action={toggleSelector}
-                  place={currentData[3].place}
-                  buttonClass='z-[1] absolute left-[52%] text-s top-[55%] overflow-hidden focus-visible:overflow-visible xl:w-[40px] xl:h-[40px] w-[30px] h-[30px]'
-                />
+                {currentData.map(data => {
+                  return (
+                    <Fingerprint
+                      action={toggleSelector}
+                      place={data.place}
+                      buttonClass={`z-[1] absolute left-[${data.point.coordX}%] text-s top-[${data.point.coordY}%] overflow-hidden focus-visible:overflow-visible xl:w-[40px] xl:h-[40px] w-[30px] h-[30px]`}
+                    />
+                  )
+                })}
               </>
             )}
             {activeLayersData.length > 0 &&
