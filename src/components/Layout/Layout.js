@@ -1,5 +1,5 @@
 import Image from 'next/image'
-import { useEffect, useState } from 'react'
+import { useState } from 'react'
 import selectNewLayers from '../../utils/selectNewLayers/selectNewLayers'
 import Fingerprint from '../Fingerprint/Fingerprint'
 import MaterialLayer from '../MaterialLayer/MaterialLayer'
@@ -44,7 +44,7 @@ const Layout = ({ data: currentData, backgroundImageSrc }) => {
               sizes='(max-width: 768px) 100%,
               (max-width: 1200px) 50%,
               33%
-              
+
               '
               quality={100}
               priority
@@ -58,7 +58,7 @@ const Layout = ({ data: currentData, backgroundImageSrc }) => {
                       action={toggleSelector}
                       place={data.place}
                       coordinates={data.point}
-                      buttonClass={`z-[1] absolute text-s overflow-hidden focus-visible:overflow-visible xl:w-[40px] xl:h-[40px] w-[30px] h-[30px]`}
+                      buttonClass='z-[1] absolute text-s overflow-hidden focus-visible:overflow-visible xl:w-[40px] xl:h-[40px] w-[30px] h-[30px]'
                     />
                   )
                 })}
