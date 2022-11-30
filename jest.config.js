@@ -2,7 +2,7 @@ module.exports = {
   collectCoverageFrom: [
     'src/**/*js',
     '!**/*.test.js',
-    '!src/pages/index.js',
+    '!src/pages/*',
     '!src/utils/collections.js',
     '!src/firebase/config.js',
     '!src/mocks/*.js'
