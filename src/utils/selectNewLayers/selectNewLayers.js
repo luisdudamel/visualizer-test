@@ -4,7 +4,7 @@ const selectNewLayers = (currentLayers, newLayer) => {
       const currentPointLayer = currentLayers.find(
         layer => layer.points[0] === newLayer.points[0]
       )
-
+      debugger
       if (currentLayers.includes(newLayer)) {
         resolve(currentLayers.filter(layer => layer !== newLayer))
       } else if (
