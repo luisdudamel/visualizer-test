@@ -16,12 +16,12 @@ const Fingerprint = ({
       <Image
         className='z-1 xl:w-[40px] xl:h-[40px] w-[30px] h-[30px] transition-all duration-800 hover:opacity-40'
         src='/img/fingerprint.svg'
-        alt='Fingerprint icon'
+        alt={`Fingerprint selector for ${place}`}
         width={30}
         height={30}
         priority
       />
-      Select Zone
+      Select {place} Zone
     </button>
   )
 }

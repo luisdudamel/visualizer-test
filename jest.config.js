@@ -4,7 +4,8 @@ module.exports = {
     '!**/*.test.js',
     '!src/pages/*',
     '!src/utils/collections.js',
-    '!src/firebase/config.js'
+    '!src/firebase/config.js',
+    '!src/mocks/*.js'
   ],
   moduleNameMapper: {
     '^.+\\.module\\.(css|sass|scss)$': 'identity-obj-proxy',
