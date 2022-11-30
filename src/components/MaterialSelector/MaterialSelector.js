@@ -11,6 +11,7 @@ const MaterialSelector = ({
   currentActiveLayers
 }) => {
   const selectorRef = useRef(null)
+
   const setNewLayer = newLayerToSet => {
     const newLayerToAdd = materialPreviewList.materials.find(
       material => material.id === newLayerToSet
@@ -20,6 +21,7 @@ const MaterialSelector = ({
   }
 
   const scroll = (ref, scrollOffset) => {
+    console.log(ref.current.scrollLeft)
     try {
       ref.current.scrollLeft += scrollOffset
     } catch {}

@@ -57,7 +57,8 @@ const Layout = ({ data: currentData, backgroundImageSrc }) => {
                       key={data.point.id}
                       action={toggleSelector}
                       place={data.place}
-                      buttonClass={`z-[1] absolute left-[${data.point.coordX}%] text-s top-[${data.point.coordY}%] overflow-hidden focus-visible:overflow-visible xl:w-[40px] xl:h-[40px] w-[30px] h-[30px]`}
+                      coordinates={data.point}
+                      buttonClass={`z-[1] absolute text-s overflow-hidden focus-visible:overflow-visible xl:w-[40px] xl:h-[40px] w-[30px] h-[30px]`}
                     />
                   )
                 })}
