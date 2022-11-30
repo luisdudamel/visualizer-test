@@ -1,69 +1,108 @@
-# Estudio Cactus Fullstack Test
+# 3D Room Configurator
 
-This is a test to validate the knowledge of the candidates for the position of fullstack developer at Estudio Cactus
+## Technical skills asessment for Estudio Cactus.
 
-## Stack
+[Original test guidelines](test-guidelines.md)
 
-- React
+---
+
+<div align="center">
+
+[![SonarCloud](https://sonarcloud.io/images/project_badges/sonarcloud-white.svg)](https://sonarcloud.io/summary/new_code?id=luisdudamel_visualize-test)
+
+[![Coverage](https://sonarcloud.io/api/project_badges/measure?project=luisdudamel_visualize-test&metric=coverage)](https://sonarcloud.io/summary/new_code?id=luisdudamel_visualize-test)
+[![Duplicated Lines (%)](https://sonarcloud.io/api/project_badges/measure?project=luisdudamel_visualize-test&metric=duplicated_lines_density)](https://sonarcloud.io/summary/new_code?id=luisdudamel_hackaton-jump2digital)
+[![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=luisdudamel_visualize-test&metric=alert_status)](https://sonarcloud.io/summary/new_code?id=luisdudamel_hackaton-jump2digital)
+[![Code Smells](https://sonarcloud.io/api/project_badges/measure?project=luisdudamel_visualize-test&metric=code_smells)](https://sonarcloud.io/summary/new_code?id=luisdudamel_hackaton-jump2digital)
+[![Bugs](https://sonarcloud.io/api/project_badges/measure?project=luisdudamel_visualize-test&metric=bugs)](https://sonarcloud.io/summary/new_code?id=luisdudamel_visualize-test)
+[![Technical Debt](https://sonarcloud.io/api/project_badges/measure?project=luisdudamel_visualize-test&metric=sqale_index)](https://sonarcloud.io/summary/new_code?id=luisdudamel_visualize-test)
+
+---
+
+![JavaScript](https://img.shields.io/badge/javascript-%23323330.svg?style=for-the-badge&logo=javascript&logoColor=%23F7DF1E)
+![React](https://img.shields.io/badge/react-%2320232a.svg?style=for-the-badge&logo=react&logoColor=%2361DAFB)
+![Next JS](https://img.shields.io/badge/Next-black?style=for-the-badge&logo=next.js&logoColor=white)
+![TailwindCSS](https://img.shields.io/badge/tailwindcss-%2338B2AC.svg?style=for-the-badge&logo=tailwind-css&logoColor=white)
+![Firebase](https://img.shields.io/badge/firebase-%23039BE5.svg?style=for-the-badge&logo=firebase)
+![Vercel](https://img.shields.io/badge/vercel-%23000000.svg?style=for-the-badge&logo=vercel&logoColor=white)
+![Jest](https://img.shields.io/badge/-jest-%23C21325?style=for-the-badge&logo=jest&logoColor=white)
+![Git](https://img.shields.io/badge/git-%23F05033.svg?style=for-the-badge&logo=git&logoColor=white)
+
+</div>
+
+<div align="center">
+
+## Usage
+
+<img style="width:600px" src="https://s4.gifyu.com/images/Desktop-Visualizer720.gif" />
+
+</div>
+<div align="center">
+
+<img style="width:300px" src="https://s4.gifyu.com/images/Mobile-Visualizer720.gif" />
+</div>
+
+---
+
+<br/>
+
+## [Deployed Website](https://visualizer-test-luisdudamel.vercel.app/) 🔗
+
+## Project info📚
+
+**Technologies used:**
+
+```
 - NextJS
-- Firebase
-- Tailwindcss
+- Javascript
+- React
+- Tailwind CSS
+- Jest
+```
 
-## Description
-
-In this case the test consists of creating a 3d room configurator. In the following link you can see an example of how the configurator should look like: https://app.estudiocactus.com/visualizer.mp4
-
-Following you have a detailed layout of the data needed to pass the test:
-
-Base image url: https://firebasestorage.googleapis.com/v0/b/visualizer-new-devs-test.appspot.com/o/base.jpeg?alt=media&token=358ccdea-3cf9-4751-ae48-4631e4700554
-
-Coordinates to draw the points over the base image:
+**Components**
 
 ```
 .
-└── firestore(/)
-    └── points (collection)
-```
-
-List of all materials (TIP: You have to think about the right query to get all the materials for a specific point -> Firestore allows array-contains queries)
-
-```
-.
-└── firestore(/)
-    └── materials (collection)
-```
-
-The credentials for the Firebase connection are located at
+└── components(/)
+    └── Layout
+    └── Fingerprint
+    └── MaterialSelector
+    └── MaterialSample
+    └── MaterialLayer
+    └── Spinner
 
 ```
-.
-└── firebase
-    └── config
+
+---
+
+## Commands
+
+```shell
+    # Installation command
+    npm i or npm/yarn i
+
+    # Running command
+    npm run dev
+
+    # Build command
+    npm run build
+
+    # Lint
+    npm run lint
 ```
 
-## Requirements
+```shell
+    # Testing command
+    npm run test
 
-1. Use StandardJS as a linter
-2. Code should be completely in english ( filenames, variables)
+    # Testing watch command
+    npm run test:watch
 
-**IMPORTANT:** We won't accept code with harcoded databaes values (e.g. document id's to make comparisons, url's for background images etc)
+    # Testing coverage command
+    npm run test:coverage
+```
 
-## How to start?
+## License
 
-1. Create a new repo using this one as a base(without forking)
-2. Make at least 1 first commit with the original code, to see the init hour.
-3. Make individiual commits for each block you create. The last commit marks the end.
-4. Send us a link to your repo.
-5. Deploy your repo to vercel.
-6. Send us a link to the deployed project.
-
-## What we value?
-
-- Simplicity of the solution
-- Organization and clean code
-- Utilization of components
-- Mobile first & RWD
-- Git usage
-- Web Performance Optimization
-- Technical knowledge
-- Layout knowledge (HTML5 y CSS3)
+[MIT](https://opensource.org/licenses/MIT)
