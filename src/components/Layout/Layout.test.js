@@ -1,5 +1,5 @@
 import userEvent from '@testing-library/user-event'
-import { render, screen } from '@testing-library/react'
+import { render, screen, waitFor } from '@testing-library/react'
 import { mockDataOrdered, mockDataLayerSelected } from '../../mocks/mockData'
 import Layout from './Layout'
 
@@ -28,15 +28,17 @@ describe('When it`s invoked with a list of 3 materials', () => {
           'Fingerprint selector for Pavimento Select Pavimento Zone'
         const expectedMaterialSampleAlternativeText =
           'Morse White material sample'
-        const expectedLayerAlternativeText = 'Morse White Nature Material'
+        const expectedLayerAlternativeText = 'Morse White material'
         const expectedCloseButtonText = 'Close material selector'
         const mockBackgroundUrl = 'https://mock.jpg'
 
         render(
-          <Layout
-            data={mockDataLayerSelected}
-            backgroundImageSrc={mockBackgroundUrl}
-          />
+          await waitFor(() => (
+            <Layout
+              data={mockDataLayerSelected}
+              backgroundImageSrc={mockBackgroundUrl}
+            />
+          ))
         )
 
         const fingerPrintButton = screen.getByRole('button', {
@@ -54,12 +56,10 @@ describe('When it`s invoked with a list of 3 materials', () => {
         })
         await userEvent.click(closeButton)
 
-        setTimeout(() => {
-          const materialLayer = screen.getByAltText(
-            expectedLayerAlternativeText
-          )
-          expect(materialLayer).toBeInTheDocument()
-        }, 3000)
+        const materialLayer = await waitFor(() =>
+          screen.getByAltText(expectedLayerAlternativeText)
+        )
+        expect(materialLayer).toBeInTheDocument()
       })
     })
   })

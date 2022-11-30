@@ -25,11 +25,12 @@ const Layout = ({ data: currentData, backgroundImageSrc }) => {
   const setNewLayer = async newLayer => {
     setHasloaded(false)
     const newLayerList = await selectNewLayers(activeLayersData, newLayer)
+    console.log('AQUII')
     setActiveLayersData(newLayerList)
     setActiveLayers(newLayerList.map(layerData => layerData.name))
     setHasloaded(true)
   }
-
+  console.log(hasLoaded)
   return (
     <div className='font-sans bg-layout-container bg-center w-screen h-screen  '>
       {!hasLoaded && <Spinner />}
