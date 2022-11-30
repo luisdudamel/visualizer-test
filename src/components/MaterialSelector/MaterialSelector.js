@@ -56,11 +56,11 @@ const MaterialSelector = ({
 
         <ul
           ref={selectorRef}
-          className={
+          className={`py-10 xl:flex-1 w-[500px] xl:w-[150px] xl:overflow-visible flex xl:flex-col gap-[10px] no-scrollbar scroll-smooth xl:justify-start overflow-x-scroll ${
             materialPreviewList.materials.length > 2
-              ? 'py-10 xl:flex-1 w-[500px] xl:w-[150px] xl:overflow-visible flex xl:flex-col gap-[10px] no-scrollbar scroll-smooth justify-between xl:justify-start sm:justify-center overflow-x-scroll'
-              : 'py-10 xl:flex-1 w-[500px] xl:w-[150px] xl:overflow-visible flex xl:flex-col gap-[10px] no-scrollbar scroll-smooth justify-center xl:justify-start overflow-x-scroll'
-          }
+              ? 'sm:justify-center  justify-between'
+              : 'justify-center'
+          }`}
         >
           {materialPreviewList.materials.map(material => {
             return (
