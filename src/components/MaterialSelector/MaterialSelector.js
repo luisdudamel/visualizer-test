@@ -69,16 +69,18 @@ const MaterialSelector = ({
                 key={material.id}
                 className='drop-shadow justify-end lg:w-[150px] sm:max-xl:w-auto text-neutral-600 flex h-[70px] flex-row '
               >
-                {currentActiveLayers.includes(material.name) ? (
-                  <div
-                    onClick={() => setNewLayer(material.id)}
-                    className='relative transition-all duration-100 w-[100px] left-[3px] lg:w-[80px] text-[9px] w-full flex justify-center items-center flex h-full bg-gray-100 rounded-l border-gray-100'
-                  >
-                    {material.name}
-                  </div>
-                ) : (
-                  <div className='hidden transition-all duration-100 xl:block relative px-2 w-[80px] lg:w-[80px] left-[3px] text-[9px] w-full flex justify-center items-center flex h-full rounded-l border-gray-100' />
-                )}
+                {currentActiveLayers.includes(material.name)
+                  ? (
+                    <div
+                      onClick={() => setNewLayer(material.id)}
+                      className='relative transition-all duration-100 w-[100px] left-[3px] lg:w-[80px] text-[9px] w-full flex justify-center items-center flex h-full bg-gray-100 rounded-l border-gray-100'
+                    >
+                      {material.name}
+                    </div>
+                    )
+                  : (
+                    <div className='hidden transition-all duration-100 xl:block relative px-2 w-[80px] lg:w-[80px] left-[3px] text-[9px] w-full flex justify-center items-center flex h-full rounded-l border-gray-100' />
+                    )}
 
                 <MaterialSample
                   setLayerFunction={setNewLayer}
