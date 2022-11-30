@@ -1,6 +1,6 @@
 import { faChevronDown, faChevronUp } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { useEffect, useRef, useState } from 'react'
+import { useRef } from 'react'
 
 import MaterialSample from '../MaterialSample/MaterialSample'
 
@@ -10,26 +10,20 @@ const MaterialSelector = ({
   setLayers,
   currentActiveLayers
 }) => {
-  const [scrollRef, setScrollRef] = useState()
   const selectorRef = useRef(null)
+
   const setNewLayer = newLayerToSet => {
     const newLayerToAdd = materialPreviewList.materials.find(
       material => material.id === newLayerToSet
     )
-
+    console.log('ME HAN CERRADOOOOOOOOOOOOO')
     setLayers(newLayerToAdd)
   }
 
-  useEffect(() => {
-    setScrollRef(selectorRef)
-  }, [])
-
-  const scroll = scrollOffset => {
-    if (scrollRef.current.scrollLeft == null) {
-      return
-    }
-
-    scrollRef.current.scrollLeft += scrollOffset
+  const scroll = (ref, scrollOffset) => {
+    try {
+      ref.current.scrollLeft += scrollOffset
+    } catch {}
   }
 
   return (
@@ -46,9 +40,9 @@ const MaterialSelector = ({
           Close material selector
         </button>
       </div>
-      <div className='xl:ml-[10px] lg:items-end justify-center top-[110%] h-[80px] xl:h-full w-full xl:w-[150px] items-center flex xl:flex-col h-full absolute xl:top-auto xl:left-[100%]'>
+      <div className='xl:ml-[10px] xl: py-[30px] xl:items-end justify-center top-[110%] h-[80px] xl:h-full w-full xl:w-[150px] items-center flex xl:flex-col h-full absolute xl:top-auto xl:left-[100%]'>
         <button
-          onClick={() => scroll(-80)}
+          onClick={() => scroll(selectorRef, -80)}
           type='button'
           className='z-2 h-[30px] w-[100px] flex-2 text-start xl:text-end overflow-hidden text-[12px] focus-visible:overflow-visible'
         >
@@ -63,11 +57,12 @@ const MaterialSelector = ({
 
         <ul
           ref={selectorRef}
-          className={
+          className={`py-10 xl:flex-1 w-[500px] xl:w-[150px] xl:overflow-visible flex xl:flex-col gap-[10px] no-scrollbar scroll-smooth xl:justify-start overflow-x-scroll ${
             materialPreviewList.materials.length > 2
-              ? 'py-10 xl:flex-1 w-[500px] xl:w-[150px] xl:overflow-visible flex xl:flex-col gap-[10px] no-scrollbar scroll-smooth justify-between xl:justify-start sm:justify-center overflow-x-scroll'
-              : 'py-10 xl:flex-1 w-[500px] xl:w-[150px] xl:overflow-visible flex xl:flex-col gap-[10px] no-scrollbar scroll-smooth justify-center xl:justify-start overflow-x-scroll'
-          }
+              ? 'sm:justify-center  justify-between'
+              : 'justify-center'
+          }`}
+          tor
         >
           {materialPreviewList.materials.map(material => {
             return (
@@ -77,7 +72,10 @@ const MaterialSelector = ({
               >
                 {currentActiveLayers.includes(material.name)
                   ? (
-                    <div className='relative transition-all duration-100 w-[100px] left-[3px] lg:w-[80px] text-[9px] w-full flex justify-center items-center flex h-full bg-gray-100 rounded-l border-gray-100'>
+                    <div
+                      onClick={() => setNewLayer(material.id)}
+                      className='relative transition-all duration-100 w-[100px] left-[3px] lg:w-[80px] text-[9px] w-full flex justify-center items-center flex h-full bg-gray-100 rounded-l border-gray-100'
+                    >
                       {material.name}
                     </div>
                     )
@@ -95,7 +93,7 @@ const MaterialSelector = ({
         </ul>
 
         <button
-          onClick={() => scroll(80)}
+          onClick={() => scroll(selectorRef, 80)}
           type='button'
           className='z-2 h-[30px] flex-2 w-[100px] text-end overflow-hidden text-[12px] focus-visible:overflow-visible'
         >

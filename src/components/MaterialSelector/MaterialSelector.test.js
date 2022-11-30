@@ -1,7 +1,13 @@
 import { render, screen } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
-import { mockCurrentActiveLayers } from '../../mocks/mockLayers'
-import { mockMaterialPreviewList } from '../../mocks/mockMaterials'
+import {
+  mockCurrentActiveIndividualLayer,
+  mockCurrentActiveLayers
+} from '../../mocks/mockLayers'
+import {
+  mockMaterialPreviewList,
+  mockMaterialPreviewListLonger
+} from '../../mocks/mockMaterials'
 import MaterialSelector from './MaterialSelector'
 
 describe('Given a MaterialSelector function', () => {
@@ -24,7 +30,7 @@ describe('Given a MaterialSelector function', () => {
     })
   })
 
-  describe('When its invoked with a function', () => {
+  describe('When its invoked with a function closeSelectorAction', () => {
     describe('And the user clicks outside the selector area', () => {
       test('Then it should call the function received`', async () => {
         const mockCloseFunction = jest.fn()
@@ -63,6 +69,91 @@ describe('Given a MaterialSelector function', () => {
         await userEvent.click(materialListItem)
 
         expect(mockSetFunction).toHaveBeenCalled()
+      })
+    })
+  })
+
+  describe('When its invoked with a function setLayers', () => {
+    describe('And the user clicks in the material with the text `Wood material sample`', () => {
+      test('Then it should call the function received`', async () => {
+        const mockCloseFunction = jest.fn()
+        const expectedWoodText = 'Wood'
+
+        render(
+          <MaterialSelector
+            materialPreviewList={mockMaterialPreviewList}
+            currentActiveLayers={mockCurrentActiveIndividualLayer}
+            setLayers={mockCloseFunction}
+          />
+        )
+
+        const woodMaterial = screen.getByText(expectedWoodText)
+
+        await userEvent.click(woodMaterial)
+
+        expect(mockCloseFunction).toHaveBeenCalled()
+      })
+    })
+  })
+
+  describe("When it's invoked with three materials list", () => {
+    describe('And the user clicks on the button with the alternative text `Next`', () => {
+      test('Then it should move the materials list 80px to left', async () => {
+        const expectedButtonText = 'Next'
+        const expectedOffset = 80
+
+        render(
+          <MaterialSelector
+            materialPreviewList={mockMaterialPreviewListLonger}
+            currentActiveLayers={mockCurrentActiveLayers}
+            setLayers={jest.fn()}
+          />
+        )
+
+        const materialButton = screen.getByRole('button', {
+          name: 'Glass material sample Select Glass material'
+        })
+
+        await userEvent.click(materialButton)
+
+        const nextButton = screen.getByRole('button', {
+          name: expectedButtonText
+        })
+        await userEvent.click(nextButton)
+
+        const materialsList = screen.getByRole('list')
+
+        expect(materialsList.scrollLeft).toBe(expectedOffset)
+      })
+    })
+
+    describe('And the user clicks on the button with the alternative text `Previous`', () => {
+      test('Then it should move the materials list 80px to right', async () => {
+        const expectedButtonText = 'Previous'
+        const expectedOffset = -80
+
+        render(
+          <MaterialSelector
+            materialPreviewList={mockMaterialPreviewListLonger}
+            currentActiveLayers={mockCurrentActiveLayers}
+            setLayers={jest.fn()}
+          />
+        )
+
+        const materialButton = screen.getByRole('button', {
+          name: 'Glass material sample Select Glass material'
+        })
+
+        await userEvent.click(materialButton)
+
+        const nextButton = screen.getByRole('button', {
+          name: expectedButtonText
+        })
+        await userEvent.click(nextButton)
+
+        const materialsList = screen.getByRole('list')
+
+        expect(materialsList.scrollLeft).toBe(expectedOffset)
       })
     })
   })
