@@ -3,20 +3,32 @@ import Fingerprint from './Fingerprint'
 import userEvent from '@testing-library/user-event'
 
 describe('Given a Fingerprint function', () => {
-  describe("When it's invoked", () => {
+  describe("When it's invoked with a place `Pavimento`", () => {
     test('Then it should render a button', () => {
       const expectedButtonRole = 'button'
+      const mockPlace = 'Pavimento'
 
-      render(<Fingerprint coordinates={{ coordX: 20, coordY: 30 }} />)
+      render(
+        <Fingerprint
+          place={mockPlace}
+          coordinates={{ coordX: 20, coordY: 30 }}
+        />
+      )
       const fingerprintButon = screen.getByRole(expectedButtonRole)
 
       expect(fingerprintButon).toBeInTheDocument()
     })
 
-    test("Then it should render an image with the alternative text 'Fingerprint icon'", () => {
-      const expectedAlternativeText = 'Fingerprint icon'
+    test("Then it should render an image with the alternative text 'Fingerprint selector for Pavimento'", () => {
+      const expectedAlternativeText = 'Fingerprint selector for Pavimento'
+      const mockPlace = 'Pavimento'
 
-      render(<Fingerprint coordinates={{ coordX: 20, coordY: 30 }} />)
+      render(
+        <Fingerprint
+          place={mockPlace}
+          coordinates={{ coordX: 20, coordY: 30 }}
+        />
+      )
       const fingerprintImage = screen.getByAltText(expectedAlternativeText)
 
       expect(fingerprintImage).toBeInTheDocument()

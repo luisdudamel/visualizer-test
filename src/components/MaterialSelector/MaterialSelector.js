@@ -16,7 +16,6 @@ const MaterialSelector = ({
     const newLayerToAdd = materialPreviewList.materials.find(
       material => material.id === newLayerToSet
     )
-    console.log('ME HAN CERRADOOOOOOOOOOOOO')
     setLayers(newLayerToAdd)
   }
 

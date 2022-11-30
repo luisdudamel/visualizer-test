@@ -25,6 +25,7 @@ const Layout = ({ data: currentData, backgroundImageSrc }) => {
   const setNewLayer = async newLayer => {
     setHasloaded(false)
     const newLayerList = await selectNewLayers(activeLayersData, newLayer)
+
     setActiveLayersData(newLayerList)
     setActiveLayers(newLayerList.map(layerData => layerData.name))
     setHasloaded(true)
