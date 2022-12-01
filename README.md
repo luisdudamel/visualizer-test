@@ -1,12 +1,22 @@
 # 3D Room Configurator
 
-## Technical skills asessment for Estudio Cactus.
+## Technical skills assessment for Estudio Cactus.
 
-[Original test guidelines](test-guidelines.md)
+3D Room configurator is an interactive interface for customizing material textures, colors and palettes on any given space. User should be able to choose from different materials and switch alternatively to another place in the room, mantaining the chosen layer.
+
+<br/>
+All the data is queried from a firebase / firestore database, using the built-in NodeJS firestore sdk queries.
+<br/>
+For styles, the test required tailwindCSS. 
+</br>
+</br>
+
+[Original test guidelines](test-guidelines.md) 🔗
 
 ---
 
 <div align="center">
+<br/>
 
 [![SonarCloud](https://sonarcloud.io/images/project_badges/sonarcloud-white.svg)](https://sonarcloud.io/summary/new_code?id=luisdudamel_visualize-test)
 
@@ -18,6 +28,8 @@
 [![Technical Debt](https://sonarcloud.io/api/project_badges/measure?project=luisdudamel_visualize-test&metric=sqale_index)](https://sonarcloud.io/summary/new_code?id=luisdudamel_visualize-test)
 
 ---
+
+<br/>
 
 ![JavaScript](https://img.shields.io/badge/javascript-%23323330.svg?style=for-the-badge&logo=javascript&logoColor=%23F7DF1E)
 ![React](https://img.shields.io/badge/react-%2320232a.svg?style=for-the-badge&logo=react&logoColor=%2361DAFB)
@@ -32,8 +44,9 @@
 
 <div align="center">
 
-## Usage
+---
 
+## Usage
 
 </div>
 <div align="center">
@@ -42,12 +55,17 @@
 <img style="height:300px" src="https://media1.giphy.com/media/ryc9nK7pZQLbB59dVG/giphy.gif?cid=790b7611d25c37f971ff9896a17dddcf08cdc3529b3a3abc&rid=giphy.gif&ct=g" />
 </div>
 
-
 ---
 
 <br/>
 
-## [Deployed Website](https://visualizer-test-luisdudamel.vercel.app/) 🔗
+<div align="center">
+<br/>
+
+## [Live website](https://visualizer-test-luisdudamel.vercel.app/) 🔗
+
+<br/>
+</div>
 
 ## Project info📚
 
@@ -75,7 +93,13 @@
 
 ```
 
+ <br/>
+<br/>
+
 ---
+
+<br/>
+<br/>
 
 ## Commands
 
@@ -103,6 +127,12 @@
     # Testing coverage command
     npm run test:coverage
 ```
+
+<br/>
+
+---
+
+<br/>
 
 ## License
 
