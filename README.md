@@ -34,12 +34,12 @@
 
 ## Usage
 
-<img style="width:600px" src="https://s4.gifyu.com/images/output1bf533e7f65e9df3.gif" />
 
 </div>
 <div align="center">
 
-<img style="width:400px" src="https://s4.gifyu.com/images/output-mobile.gif" />
+<img style="height:300px" src="https://s4.gifyu.com/images/output1bf533e7f65e9df3.gif" />
+<img style="height:300px" src="https://media1.giphy.com/media/ryc9nK7pZQLbB59dVG/giphy.gif?cid=790b7611d25c37f971ff9896a17dddcf08cdc3529b3a3abc&rid=giphy.gif&ct=g" />
 </div>
 
 
