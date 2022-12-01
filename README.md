@@ -34,13 +34,14 @@
 
 ## Usage
 
-<img style="width:600px" src="https://s4.gifyu.com/images/Desktop-Visualizer720.gif" />
+<img style="width:600px" src="https://s4.gifyu.com/images/output1bf533e7f65e9df3.gif" />
 
 </div>
 <div align="center">
 
-<img style="width:300px" src="https://s4.gifyu.com/images/Mobile-Visualizer720.gif" />
+<img style="width:400px" src="https://s4.gifyu.com/images/output-mobile.gif" />
 </div>
+
 
 ---
 
